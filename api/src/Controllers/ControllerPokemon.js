@@ -1,53 +1,126 @@
 const {Pokemon, Type} = require("../db");
 const axios = require("axios");
 
-const getApiInfoPokemons = async ()=>{
-    const apiUrl= await axios("https://pokeapi.co/api/v2/pokemon");
-    const apiPoke = await axios.all(apiUrl.data.results.map(async poke =>{
-        let pokeDetail= await axios(poke.url)
-        return {
-            id: pokeDetail.data.id,
-            name: pokeDetail.data.name,
-            img: pokeDetail.data.sprites.other.dream_world.front_default,
-           //  background_image_2: pokeDetail.data.sprites.other['official-artwork'].front_default,
-            types: pokeDetail.data.types.map(t => t.type.name),
-            attack: pokeDetail.data.stats[1].base_stat,
-            defense: pokeDetail.data.stats[2].base_stat,
-        }
-    }))
-    return apiPoke;
-}
-const getDbInfoPokemons = async () =>{
-    let pokeDB = await Pokemon.findAll({
-        include:{
-            model: Type,
-            attributes:['name'],
-            through: {
-                attributes: []
+const searchPokeDB = async (id , name) =>{//busca pokemons en BD por id o nombre 
+    if(id){
+        let poke = await Pokemon.findAll({
+            where:{id : id} ,
+            include:{
+                model: Type,
+                attributes:['name'],
+                through: {
+                    attributes: []
+                }
             }
-        }
-    })
-    let pokeDbFormat = pokeDB.map(e =>{
-        return {
-          id: e.id,
-          img: e.img,
-          name: e.name,
-          types: e.types.map(t=>t.name),
-          created: e.created,
-          attack: e.attack,
-          defense: e.defense
-        }
-    })
-    return pokeDbFormat;
-}
-const getAllPokemons = async () =>{
-    const apiPoke = await getApiInfoPokemons();
-    const DbPoke = await getDbInfoPokemons();
-    const AllPokemons= [...DbPoke, apiPoke] //apiPoke.concat(DbPoke);
+        })
+        return poke[0]
+    }else{
+      let pokeCreated = await Pokemon.findAll({
+            where:{name : name} ,
+            include:{
+                model: Type,
+                attributes:['name'],
+                through: {
+                    attributes: []
+                }
+            }
+          })
+      return pokeCreated[0]
+    }
+  };
+const getDetail = async (name_id)=>{//trae 1 pokemon por ID o Nombre de la Api
+    try {
+      let response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name_id}`)
+      let pokemon = {
+        id: response.data.id,
+        name: response.data.name,
+        img: response.data.sprites.other.dream_world.front_default,
+        health: response.data.stats[0].base_stat,
+        attack: response.data.stats[1].base_stat,
+        defense: response.data.stats[2].base_stat,
+        speed: response.data.stats[5].base_stat,
+        height: response.data.height,
+        weight: response.data.weight,
+        types: response.data.types.map((t) =>{
+          return{
+            name : t.type.name
+          }
+        }),
+      }
+    return pokemon
+    }catch(error){
+      return 'Pokemon No Encontrado';
+    }
+    
+};
 
-    return AllPokemons;
-}
+const createPokemonDB = async (name,img,health,attack,defense,speed,height,weight,types)=>{//crea los Pokemons en BD
+    try {
+        // const findPoke = await Pokemon.findOne({ where: { name: name.toLowerCase()} });
+        let createPokemon = await Pokemon.create({
+            name,
+            img,
+            health,
+            attack,
+            defense,
+            speed,
+            height,
+            weight,
+         })
+        
+        let typesDB = await Type.findAll({
+            where:{name : types} 
+            })
+        
+        await createPokemon.addType(typesDB)
+        let poke = await Pokemon.findAll({
+            where:{name : name} ,
+            include:{
+                model: Type,
+                attributes:['name'],
+                through: {
+                    attributes: []
+                }
+            }
+        })
+        return poke[0]
 
+    } catch (error) {
+      return  {error: error.message}    //{ message:'No se pudo crear el Pokemon' }
+    }
+    
+  };
   
+const getByName = async (name)=>{ //busca por nombre en BD y Api
+    let searchDB = await searchPokeDB(null,name)
+    if(searchDB) return [{
+         id:searchDB.id,
+         name: searchDB.name,
+         img: searchDB.img,
+         health: searchDB.hp,
+         attack: searchDB.attack,
+         defense: searchDB.defense,
+         speed: searchDB.speed,
+         height: searchDB.height,
+         weight: searchDB.weight,
+         created: searchDB.created,
+         types: searchDB.types?.map(e=>e.name)}]
+    //----------------------------------------------------------
+    let searchApi = await getDetail(name) 
+    // console.log(searchApi,'-->server Name')
+    if(searchApi === 'Pokemon No Encontrado'){
+      return "No se encontro el Pokemon"
+    }
+    return [{...searchApi,
+      types: searchApi.types?.map(e=>e.name)}]
+};
+  
+const getById = async (id)=>{//busca por ID en BD y Api
+    if(Number(id)){ // si es number busca en la api
+      return await getDetail(id)
+    }else{
+      return searchPokeDB(id,null)
+    }
+};
 
-module.exports = {getAllPokemons};
+module.exports = {createPokemonDB, getById, getByName}
