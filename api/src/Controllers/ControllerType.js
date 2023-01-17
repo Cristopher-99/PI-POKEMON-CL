@@ -10,6 +10,7 @@ const CreateTypesDB = async (arrTypes) => {//crea los tipos en BD
      let alltypes = await Type.findAll()
     return alltypes.map(e=>e.name)//.toString().trim().split(',')
   };
+
   const getAllTypes = async () => {//trae y cargas los tipos en BD
     let alltypes = await Type.findAll();
     if (alltypes.length !== 0) {
@@ -21,7 +22,8 @@ const CreateTypesDB = async (arrTypes) => {//crea los tipos en BD
           return genre.name;
         });
         const typesDb = await CreateTypesDB(typesApi); //crea y llama los types desde la BD
-        return typesDb;
+          return typesDb;
+          
       } catch (error) {
         return error;
       }

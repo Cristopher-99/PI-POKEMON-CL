@@ -53,7 +53,6 @@ const getDetail = async (name_id)=>{//trae 1 pokemon por ID o Nombre de la Api
     }
     
 };
-
 const createPokemonDB = async (name,img,health,attack,defense,speed,height,weight,types)=>{//crea los Pokemons en BD
     try {
         // const findPoke = await Pokemon.findOne({ where: { name: name.toLowerCase()} });
@@ -121,6 +120,7 @@ const getById = async (id)=>{//busca por ID en BD y Api
     }else{
       return searchPokeDB(id,null)
     }
+    return "error"
 };
 
 module.exports = {createPokemonDB, getById, getByName}

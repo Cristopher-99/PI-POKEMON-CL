@@ -3,7 +3,7 @@ const axios = require("axios");
 
 const getApiInfoPokemons = async ()=>{
     const apiUrl= await axios("https://pokeapi.co/api/v2/pokemon");
-    const apiPoke = await axios.all(apiUrl.data.results.map(async poke =>{
+    const apiPoke = await axios.all(apiUrl.data.results.map(async poke =>{ // DOBLE REQUEST
         let pokeDetail= await axios(poke.url)
         return {
             id: pokeDetail.data.id,
@@ -40,7 +40,7 @@ const getDbInfoPokemons = async () =>{
     })
     return pokeDbFormat;
 }
-const getAllPokemons = async () =>{
+const getAllPokemons = async () =>{ // unifico los pokemons de mi DB y mi API
     const apiPoke = await getApiInfoPokemons();
     const dbPoke = await getDbInfoPokemons();
     const AllPokemons= [...dbPoke, apiPoke] //apiPoke.concat(DbPoke);
