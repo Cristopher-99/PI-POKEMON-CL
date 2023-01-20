@@ -1,22 +1,23 @@
-import Card from "../Card/Card";
-import { useSelector } from "react-redux";
+// import Card from "../Card/Card";
+// import { useSelector } from "react-redux";
 
-const CardsContainer = () => {
-    const pokemons= useSelector(state => state.pokemons)
+// const CardsContainer = () => {
+//     const pokemons= useSelector(state => state.pokemons)
 
-    return (
-        <div className="CardsContainer">
-            {pokemons.map (poke=>{
-                return <Card
-                    id= {poke.id}
-                    name= {poke.name}
-                    img= {poke.img}
-                    />    
+//     return (
+//         <div className="CardsContainer">
+//             {pokemons.map(poke=>{
+//                 return <Card
+//                     id= {poke.id}
+//                     name= {poke.name}
+//                     img= {poke.img}
+                    
+//                     />    
                 
-            })}
+//             })}
 
-        </div>
-    )
+//         </div>
+//     )
 
-}
-export default CardsContainer;
+// }
+// export default CardsContainer;

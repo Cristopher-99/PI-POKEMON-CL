@@ -1,51 +1,68 @@
 const {Pokemon, Type} = require("../db");
 const axios = require("axios");
 
-const getApiInfoPokemons = async ()=>{
-    const apiUrl= await axios("https://pokeapi.co/api/v2/pokemon");
-    const apiPoke = await axios.all(apiUrl.data.results.map(async poke =>{ // DOBLE REQUEST
-        let pokeDetail= await axios(poke.url)
-        return {
-            id: pokeDetail.data.id,
-            name: pokeDetail.data.name,
-            img: pokeDetail.data.sprites.other.dream_world.front_default,
-           //  background_image_2: pokeDetail.data.sprites.other['official-artwork'].front_default,
-            types: pokeDetail.data.types.map(t => t.type.name),
-            attack: pokeDetail.data.stats[1].base_stat,
-            defense: pokeDetail.data.stats[2].base_stat,
-        }
-    }))
-    return apiPoke;
-}
-const getDbInfoPokemons = async () =>{
-    let pokeDB = await Pokemon.findAll({
-        include:{
-            model: Type,
-            attributes:['name'],
-            through: {
-                attributes: []
+const getApiPokemons = async ()=>{
+    try {
+        const apiUrl= await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=25`,{
+            headers: { "Accept-Encoding": "gzip,deflate,compress" }
+        });
+        let pokemonsApi = await axios.all(apiUrl.data.results.map( async poke =>{
+            let pokeData= await axios(poke.url)
+            return {
+                id: pokeData.data.id,
+                name: pokeData.data.name,
+                img: pokeData.data.sprites.other.dream_world.front_default,
+                types: pokeData.data.types.map(t => t.type.name),
+                attack: pokeData.data.stats[1].base_stat,
             }
-        }
-    })
-    let pokeDbFormat = pokeDB.map(e =>{
-        return {
-          id: e.id,
-          img: e.img,
-          name: e.name,
-          types: e.types.map(t=>t.name),
-          created: e.created,
-          attack: e.attack,
-          defense: e.defense
-        }
-    })
-    return pokeDbFormat;
-}
-const getAllPokemons = async () =>{ // unifico los pokemons de mi DB y mi API
-    const apiPoke = await getApiInfoPokemons();
-    const dbPoke = await getDbInfoPokemons();
-    const AllPokemons= [...dbPoke, apiPoke] //apiPoke.concat(DbPoke);
+        }))
 
-    return AllPokemons;
+    return pokemonsApi;
+
+    } catch (error){
+        return(error)
+    }
+}
+const getDbPokemons = async () =>{
+    try {
+        let pokeDB = await Pokemon.findAll({
+            include:{
+                model: Type,
+                attributes:['name'],
+                through: {
+                    attributes: []
+                }
+            }
+        })
+        let pokemonsDB = pokeDB.map(e =>{
+            return {
+              id: e.id,
+              img: e.img,
+              name: e.name,
+              types: e.types.map(t=>t.name),
+              created: e.created,
+              attack: e.attack,
+              defense: e.defense
+            }
+        })
+        return pokemonsDB;
+    } catch (error) {
+        return error;
+    }
+    
+}
+
+const getAllPokemons = async () =>{ // unifico los pokemons de mi DB y mi API
+    try {
+        let apiPoke = await getApiPokemons();
+        let dbPoke = await getDbPokemons();
+        let AllPokemons=  [...dbPoke, ...apiPoke]; 
+        // return apiPoke.concat(dbPoke);
+        return AllPokemons;
+
+    } catch (error) {
+        return error;
+    }
 }
 
   

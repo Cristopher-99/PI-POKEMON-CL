@@ -1,0 +1,17 @@
+.HomeContainer{
+    background-color: rgba(211, 39, 16, 0.344);
+    
+}
+.Cards{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto auto;
+
+}
+.divCard{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+/* .divCard:hover{
+    background-color: rgba(0, 255, 255, 0.611);
+} */

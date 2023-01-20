@@ -17,7 +17,7 @@ module.exports = (sequelize) => {
 
     img: {
       type: DataTypes.STRING,
-      defaultValue : 'https://www.svgrepo.com/show/276264/pokeball-pokemon.svg'
+      defaultValue : 'https://www.svgrepo.com/show/276264/pokeball-pokemon.svg',
     },
     health: {
       type: DataTypes.INTEGER,

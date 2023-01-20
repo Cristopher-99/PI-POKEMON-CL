@@ -34,7 +34,7 @@ const getDetail = async (name_id)=>{//trae 1 pokemon por ID o Nombre de la Api
       let pokemon = {
         id: response.data.id,
         name: response.data.name,
-        img: response.data.sprites.other.dream_world.front_default,
+        img: response.data.sprites.other.home.front_default,
         health: response.data.stats[0].base_stat,
         attack: response.data.stats[1].base_stat,
         defense: response.data.stats[2].base_stat,

@@ -1,10 +1,12 @@
 
 .LandingContainer{
     background-image: url("../../img/fondogif.gif");
-    /* display:flex; */
-    justify-content: center;
-    height: 90.8vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
     width: 100%;
+    justify-content: center;
 }
 .btnPoke {
     background-color: red;
@@ -16,5 +18,13 @@
     cursor: pointer;
 }
 .Welcome {
-    padding: 30px;
+   
+    /* background-image: url("../../img/portadapokemon.png"); */
+    margin-top: 120px;
+    background-color: #ecf3fa96;
+    display: block;
+    border: rgba(87, 83, 83, 0.456) 3px solid;
+    border-radius: 10px;
+    padding-top: 30px;
 }
+
