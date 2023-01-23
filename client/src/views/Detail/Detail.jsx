@@ -1,3 +1,4 @@
+import React from "react";
 import { getDetails, clearDetails } from "../../redux/actions";
 import { useDispatch,useSelector} from "react-redux";
 import { useEffect } from "react";

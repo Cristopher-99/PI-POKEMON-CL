@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import logoPoke from "../../img/portadapokemon.png"
 import Search from "./Search/Search";

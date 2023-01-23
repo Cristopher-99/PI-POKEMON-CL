@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import portada from "../../img/portadapokemon.png"
 import "./Landing.css";

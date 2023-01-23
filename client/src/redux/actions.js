@@ -9,6 +9,10 @@ export const CLEAR_CREATE_POKEMON = "CLEAR_CREATE_POKEMON";
 export const CLEAR_ALL_POKES ="CLEAR_ALL_POKES";
 export const CLEAR_TYPES= "CLEAR_TYPES";
 export const FILTER_BY_TYPES ="FILTER_BY_TYPES";
+export const FILTER_BY_CREATED= "FILTER_BY_CREATED";
+export const ORDER_BY_NAME = "ORDER_BY_NAME";
+export const ORDER_BY_ATTACK = "ORDER_BY_ATTACK";
+
 
 export const getAllPokemons = () =>{
     return async function (dispatch){ // "aca es donde se comunican el back con el front" no se conectan
@@ -94,9 +98,33 @@ export const clearTypes =()=>{
         type: CLEAR_TYPES,
     }
 }
-export const FilterTypes = (type)=>{
+export const FilterByTypes = (payload)=>{
     return{
         type: FILTER_BY_TYPES,
-        payload: type,
+        payload,
+    }
+}
+export const FilteredByCreated= (payload) =>{   
+    return {
+        type: FILTER_BY_CREATED,
+        payload,
+    }
+}
+export const FilterByCreated = (payload)=>{
+    return {
+        type: FILTER_BY_CREATED,
+        payload
+    }
+}
+export const OrderByName = (payload) =>{
+    return {
+        type: ORDER_BY_NAME,
+        payload,
+    }
+}
+export const OrderbyAttack = (payload)=>{
+    return {
+        type: ORDER_BY_ATTACK,
+        payload
     }
 }

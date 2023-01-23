@@ -3,7 +3,7 @@ const axios = require("axios");
 
 const getApiPokemons = async ()=>{
     try {
-        const apiUrl= await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=25`,{
+        const apiUrl= await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=24`,{
             headers: { "Accept-Encoding": "gzip,deflate,compress" }
         });
         let pokemonsApi = await axios.all(apiUrl.data.results.map( async poke =>{

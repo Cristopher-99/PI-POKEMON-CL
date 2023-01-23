@@ -1,3 +1,4 @@
+import React from "react"
 import "./Paginado.css"
 const Paginado =(props)=>{
     const numeroPagina=[]
