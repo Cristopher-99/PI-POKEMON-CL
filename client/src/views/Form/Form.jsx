@@ -4,6 +4,7 @@ import { useDispatch, useSelector} from "react-redux";
 import { useEffect, useState} from "react";
 import { createPokemon, getAllTypes ,clearCreatePokemon, clearAllPokes,clearTypes} from "../../redux/actions";
 import validate from "../../functions/validate";
+import "./Form.css";
 const Form = (props) =>{
 
     const dispatch= useDispatch();
@@ -21,7 +22,7 @@ const Form = (props) =>{
 
         }
         
-    },[ pokesDb.message, pokesDb.name, dispatch])
+    },[ dispatch])
 
     /// estados locales
     const [form, setForm] = useState({
@@ -55,12 +56,6 @@ const Form = (props) =>{
        })}
     }
 
-    // function handleSelect (e){
-    //     setForm({
-    //         ...form,
-    //         types: [...form.types, e.target.value]
-    //     })
-    // }
     const handleSubmit = function(e) {
        e.preventDefault();
        dispatch(clearCreatePokemon())
@@ -89,11 +84,13 @@ const Form = (props) =>{
     ///
 
     return (
-        <div>
-            <NavBar/>
+        <div className="FormContainer">
+            <div>
+                <NavBar/>
+            </div>
 
-            <h1>Creacion de Pokemon</h1>
             <form className="form_create" onSubmit={(e)=> handleSubmit(e)}>
+                
                 <div>
                     <div>
                         <label className="label_create">Nombre: </label>
@@ -140,8 +137,8 @@ const Form = (props) =>{
                         {validate(form).height ? (<p className="danger">{validate(form).height}</p>) : (<></>)}
 
                     </div>
-                    <div>
-                        <label className="label_create">Tipos: </label>
+                    <h2 className="types">Tipos: </h2>
+                    <div className="form_types">
                         {Alltypes?.map((type)=> (
                            <div className="infoType">
                                 <input type="checkbox" name="types" id={type} value={type} onChange={(e)=> handleInputChange(e)} />
@@ -151,14 +148,12 @@ const Form = (props) =>{
                         {validate(form).types ? (<p className="danger">{validate(form).types}</p>) : (<></>)}
 
                     </div>
-                    <button type='submit'  onClick={(e) => handleSubmit(e)} className="btn-back">
+                    <button type='submit' onClick={(e) => handleSubmit(e)} className="btn-create">
                         <span>Crear pokemon</span>
                     </button>
                 </div>
 
             </form>
-
-        
 
         </div>
         

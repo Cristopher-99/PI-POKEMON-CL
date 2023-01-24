@@ -1,6 +1,11 @@
 .HomeContainer{
-    background-color: rgba(211, 39, 16, 0.344);
-    
+    background-image: url("../../img/fondoHome.jpg");
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-size:cover;
+    background-position: center;
+    height: 200vh;
+
 }
 .Cards{
     display: grid;
@@ -12,6 +17,19 @@
     padding-top: 20px;
     padding-bottom: 20px;
 }
-/* .divCard:hover{
-    background-color: rgba(0, 255, 255, 0.611);
-} */
+.FilterPokemon{
+    padding: 5px;
+    font-size: 20px;
+    background-color: rgba(22, 248, 248, 0.593);
+    border-radius: 10px;
+}
+.OrderPokemon{
+    padding: 5px;
+    font-size: 20px;
+    background-color: rgba(233, 59, 181, 0.713);
+    border-radius: 10px;
+
+}
+.FilterAndOrder{
+    padding: 20px;
+}

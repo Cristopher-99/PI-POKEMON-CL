@@ -9,15 +9,14 @@ import Form from './views/Form/Form';
 function App() {
   return (
     <BrowserRouter>
-    <div className="App">
-      <Switch>
-        <Route exact path="/" render={()=> <Landing/>}  /> 
-        <Route exact path="/home" render={()=> <Home/>}  /> 
-        <Route exact path="/home/:id" render={()=> <Detail/>}  /> 
-        <Route exact path="/create" render={()=> <Form/>}  /> 
-
-      </Switch>
-    </div>
+      <div className="App">
+        <Switch>
+          <Route exact path="/" component={Landing}  /> 
+          <Route exact path="/home" component={Home} /> 
+          <Route exact path="/home/:id" component={Detail} /> 
+          <Route exact path="/create" component={Form} /> 
+        </Switch>
+      </div>
     </BrowserRouter>
   );
 }

@@ -5,7 +5,7 @@ const {createPokemonDB, getByName,getById} = require("../Controllers/ControllerP
 const getAllPokemonsHandler = async (req, res) =>{
     const {name} = req.query
     if(name){
-        if(await getByName(name)==="No se encontro el Pokemon") return res.status(400).json();
+        // if(await getByName(name)==="No se encontro el Pokemon") return res.status(400).json();
         try {
             res.status(200).send(await getByName(name))
         } catch (e) {

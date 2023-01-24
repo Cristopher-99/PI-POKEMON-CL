@@ -10,8 +10,8 @@ export const CLEAR_ALL_POKES ="CLEAR_ALL_POKES";
 export const CLEAR_TYPES= "CLEAR_TYPES";
 export const FILTER_BY_TYPES ="FILTER_BY_TYPES";
 export const FILTER_BY_CREATED= "FILTER_BY_CREATED";
-export const ORDER_BY_NAME = "ORDER_BY_NAME";
-export const ORDER_BY_ATTACK = "ORDER_BY_ATTACK";
+export const ORDER_BY_NAME_OR_ATTACK = "ORDER_BY_NAME_OR_ATTACK";
+// export const ORDER_BY_ATTACK = "ORDER_BY_ATTACK";
 
 
 export const getAllPokemons = () =>{
@@ -24,8 +24,8 @@ export const getAllPokemons = () =>{
             });
         }
          catch (error) {
-            alert('Error al cargar los pokemons')
-            console.log(error);
+            alert("Error al cargar los pokemons")
+            return(error)
         }
     }
 }
@@ -39,8 +39,8 @@ export const getAllTypes= ()=>{
             })
             
         } catch (error) {
-            alert('Error: no se pudo cargar los typos')
-            console.log(error);
+            alert('Error: no se pudo cargar los tipos')
+            return (error);
         }
     }
 }
@@ -61,16 +61,17 @@ export const clearDetails= ()=>{
 export const searchByName= (name)=>{
     return async function(dispatch){
         try {
-          const apiName= await axios.get(`http://localhost:3001/pokemons?name=${name}`)
-            return dispatch({
-                type: SEARCH_BY_NAME, 
-                payload: apiName.data,
-            })
-            
-        } catch (error) {
-            alert('El pokemon no fue encontrado')
-            console.log(error);
-        }
+            const apiName= await axios.get(`http://localhost:3001/pokemons?name=${name}`)
+              return dispatch({
+                  type: SEARCH_BY_NAME, 
+                  payload: apiName.data,
+              })
+              
+          } catch (error) {
+            alert("Pokemon no encontrado");
+            throw error;
+          }
+        
     }
 }
 export const createPokemon= (poke)=>{
@@ -98,7 +99,7 @@ export const clearTypes =()=>{
         type: CLEAR_TYPES,
     }
 }
-export const FilterByTypes = (payload)=>{
+export const FilteredByTypes = (payload)=>{
     return{
         type: FILTER_BY_TYPES,
         payload,
@@ -110,21 +111,16 @@ export const FilteredByCreated= (payload) =>{
         payload,
     }
 }
-export const FilterByCreated = (payload)=>{
+
+export const OrderByNameOrAttack = (payload) =>{
     return {
-        type: FILTER_BY_CREATED,
-        payload
-    }
-}
-export const OrderByName = (payload) =>{
-    return {
-        type: ORDER_BY_NAME,
+        type: ORDER_BY_NAME_OR_ATTACK,
         payload,
     }
 }
-export const OrderbyAttack = (payload)=>{
-    return {
-        type: ORDER_BY_ATTACK,
-        payload
-    }
-}
+// export const OrderbyAttack = (payload)=>{
+//     return {
+//         type: ORDER_BY_ATTACK,
+//         payload
+//     }
+// }

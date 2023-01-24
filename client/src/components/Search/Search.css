@@ -1,0 +1,18 @@
+.form{
+    padding: 10px;
+}
+.input{
+    background-color: #0d0d0d71;
+    height: 30px;
+    width: 30vh;
+    color: rgb(255, 241, 240);
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(236, 10, 10);
+}
+.searchBtn{
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}

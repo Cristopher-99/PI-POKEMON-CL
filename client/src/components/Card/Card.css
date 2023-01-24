@@ -1,10 +1,13 @@
 @import url('https://fonts.cdnfonts.com/css/inspector-general');
 
 .CardStats{
-    background-color: rgba(26, 25, 25, 0.225);
+    background-color: rgba(69, 62, 62, 0.619);
     display: inline-table;
     border-radius: 30px;
     padding-bottom: 10px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #f7f7f6;
 }
 .title{
     font-family: 'Inspector General 3D', sans-serif;
@@ -12,13 +15,15 @@
 
 }
 .date{
+    padding: 10px;
     font-family: 'Courier New', Courier, monospace;
-    color: #050505;
+    color: #ffffff;
 
 
 }
 .CardStats:hover {
-    background-color: rgba(0, 255, 255, 0.342);
+    background-color: #aba6e2;
 
 }
+
         

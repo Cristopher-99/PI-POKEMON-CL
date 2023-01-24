@@ -1,7 +1,7 @@
 import { stat } from "fs";
 import { GET_POKEMONS, GET_TYPES ,GET_DETAILS, CLEAR_DETAIL, SEARCH_BY_NAME,
          CREATE_POKEMON, CLEAR_CREATE_POKEMON, CLEAR_ALL_POKES, CLEAR_TYPES,
-        FILTER_BY_TYPES,FILTER_BY_CREATED, ORDER_BY_NAME,ORDER_BY_ATTACK} from "./actions";
+        FILTER_BY_TYPES,FILTER_BY_CREATED, ORDER_BY_NAME_OR_ATTACK} from "./actions";
 
 const initialState = {
     pokemons:[],
@@ -79,39 +79,39 @@ const rootReducer = (state= initialState, action) =>{
                 pokemons: action.payload === "All" ? state.pokeCopy : FilteredByCreated
             } 
 
-        case ORDER_BY_NAME:
-            const SortedByName= action.payload === "asc" 
-                ? state.pokemons.sort(function(a,b){
-                    if(a.name > b.name) return 1;
-                    if (b.name > a.name) return -1;
-                    return 0;
-                })
-                : state.pokemons.sort(function(a,b){
-                    if(a.name > b.name) return -1;
-                    if (b.name > a.name) return 1;
-                    return 0;
-                })
-                return{
-                    ...state,
-                    pokemons:SortedByName
+        case ORDER_BY_NAME_OR_ATTACK:
+            let SortedArray;
+                if(action.payload=== "asc"){
+                    SortedArray= state.pokeCopy.sort(function(a,b){
+                       if(a.name > b.name) return 1;
+                       if (b.name > a.name) return -1;
+                       return 0;
+                   })
                 }
-            
-        case ORDER_BY_ATTACK:
-            const SortedByAttack = action.payload === "min" 
-            ? state.pokemons.sort(function(a,b){
-                if(a.attack > b.attack) return 1;
-                if(b.attack > a.attack) return -1;
-                return 0;
-            })
-            : state.pokemons.sort(function(a,b){
-                if(a.attack > b.attack) return -1;
-                if(b.attack > a.attack) return 1;
-                return 0;
-            })     
-            return {
-                ...state,
-                pokemons: SortedByAttack
-            }        
+                if(action.payload === "desc")
+                    SortedArray = state.pokeCopy.sort(function(a,b){
+                        if(a.name > b.name) return -1;
+                        if (b.name > a.name) return 1;
+                        return 0;
+                })
+                if(action.payload=== "min"){
+                    SortedArray= state.pokeCopy.sort(function(a,b){
+                       if(a.attack > b.attack) return 1;
+                       if (b.attack > a.attack) return -1;
+                       return 0;
+                   })
+                }
+                if(action.payload === "max")
+                    SortedArray = state.pokeCopy.sort(function(a,b){
+                        if(a.attack > b.attack) return -1;
+                        if (b.attack > a.attack) return 1;
+                        return 0;
+                })
+
+            return{
+                 ...state,
+                pokemons:SortedArray
+            }
 
         default:
             return{...state};

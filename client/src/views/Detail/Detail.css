@@ -1,0 +1,55 @@
+@import url('https://fonts.cdnfonts.com/css/games');
+
+.detailContainer{
+    background-image: url("../../img/fondoDetail.jpg");
+    background-repeat: repeat;
+    background-attachment:fixed;
+    background-size:cover;
+    height: 150vh;
+}
+.detailStats{
+    display:inline-block;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    border-width: 3px;
+    border-style:solid;
+    border-color: #000000b6;
+    padding: 10px;
+    
+}
+.obj2Detail{
+    float: right;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 25px;
+    padding-left: 30px;
+   /* font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif */
+}
+.objDetail{
+    
+    display: inline-block;
+    background-image: url("../../img/targetdetail.png");
+    border-radius: 10px;
+    border: 1px;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    padding: 20px;
+}
+.detailStats h1{
+    font-family: 'Inspector General 3D', sans-serif;
+    font-size: 60px;
+}
+.detail{
+    font-family: 'Inspector General Laser', sans-serif;
+    color: #b4e2b1;
+    font-size: 30px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #2f2b47de;
+}
+.btn_back{
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.385);
+    display: block;
+}

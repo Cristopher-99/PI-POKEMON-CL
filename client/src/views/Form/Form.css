@@ -1,0 +1,59 @@
+@import url('https://fonts.cdnfonts.com/css/games');
+
+.FormContainer{
+    background-image: url("../../img/fondoDetail.jpg");
+    background-repeat: repeat;
+    background-attachment:fixed;
+    background-size:cover;
+    height: 180vh;
+}
+.form_create{
+    display:inline-block;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 50vh;
+    border-radius: 20px;
+    border-width: 3px;
+    border-style:solid;
+    border-color: #ffffffb6;
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+
+}
+.form_types{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    color:#00ffff;
+}
+.btn-create{
+    background-color: #227539;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+}
+.header{
+    font-family: 'Inspector General Laser', sans-serif;
+    font-size: 30px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #2f2b47de;
+}
+.title{
+    font-family: 'Inspector General 3D', sans-serif;
+    font-size: 40px;
+    color: white;
+}
+.danger{
+    color: red;
+}
+#name_l{
+    font-size: 20px;
+    border-radius: 5px;
+}
+.btn_back{
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.385);
+    display: block;
+}

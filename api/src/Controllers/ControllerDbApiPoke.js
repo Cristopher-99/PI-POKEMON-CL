@@ -3,9 +3,7 @@ const axios = require("axios");
 
 const getApiPokemons = async ()=>{
     try {
-        const apiUrl= await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=24`,{
-            headers: { "Accept-Encoding": "gzip,deflate,compress" }
-        });
+        const apiUrl= await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=24`);
         let pokemonsApi = await axios.all(apiUrl.data.results.map( async poke =>{
             let pokeData= await axios(poke.url)
             return {
@@ -53,16 +51,14 @@ const getDbPokemons = async () =>{
 }
 
 const getAllPokemons = async () =>{ // unifico los pokemons de mi DB y mi API
-    try {
-        let apiPoke = await getApiPokemons();
-        let dbPoke = await getDbPokemons();
-        let AllPokemons=  [...dbPoke, ...apiPoke]; 
-        // return apiPoke.concat(dbPoke);
-        return AllPokemons;
 
-    } catch (error) {
-        return error;
-    }
+    const apiPoke = await getApiPokemons();
+    const dbPoke = await getDbPokemons();
+    const AllPokemons=  [...dbPoke, ...apiPoke]; 
+        // return dbPoke.concat(apiPoke);
+    return AllPokemons;
+
+
 }
 
   

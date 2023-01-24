@@ -39,8 +39,8 @@ const getDetail = async (name_id)=>{//trae 1 pokemon por ID o Nombre de la Api
         attack: response.data.stats[1].base_stat,
         defense: response.data.stats[2].base_stat,
         speed: response.data.stats[5].base_stat,
-        height: response.data.height,
-        weight: response.data.weight,
+        height: response.data.height/10 ,
+        weight: (response.data.weight*0.10).toFixed(1) ,
         types: response.data.types.map((t) =>{
           return{
             name : t.type.name
