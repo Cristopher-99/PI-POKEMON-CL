@@ -3,7 +3,7 @@ const axios = require("axios");
 
 const getApiPokemons = async ()=>{
     try {
-        const apiUrl= await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=24`);
+        const apiUrl= await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=40`);
         let pokemonsApi = await axios.all(apiUrl.data.results.map( async poke =>{
             let pokeData= await axios(poke.url)
             return {

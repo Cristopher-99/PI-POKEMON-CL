@@ -120,7 +120,6 @@ const getById = async (id)=>{//busca por ID en BD y Api
     }else{
       return searchPokeDB(id,null)
     }
-    return "error"
 };
 
 module.exports = {createPokemonDB, getById, getByName}

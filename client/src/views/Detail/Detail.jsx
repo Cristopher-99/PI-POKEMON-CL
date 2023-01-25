@@ -26,24 +26,25 @@ const Detail = () =>{
                 <NavBar/>
             </div>
                 <div className="detailStats">
-                    <h1 >{detailsPoke.name}</h1>
+                    
                     <img className='objDetail' src= {detailsPoke.img} alt='Imagen no encontrada' width='400px' height='400px'/>
                     <div className='obj2Detail'>
-                        <h2>ID: {detailsPoke.id} </h2>
+                        <h1>{detailsPoke.name}</h1>
+                        <h2>Nro Pokemon: {detailsPoke.id} </h2>
                         <div>
-                            <label for="health">Vida: {detailsPoke.health} </label>
+                            <label htmlFor="healt">Vida: {detailsPoke.health} </label>
                             <progress id="health" value={detailsPoke.health} max="100"></progress>
                         </div>
                         <div>
-                            <label for="attack">Ataque: {detailsPoke.attack} </label>
+                            <label htmlFor="attack">Ataque: {detailsPoke.attack} </label>
                             <progress id="attack" value={detailsPoke.attack} max="100"></progress>
                         </div>
                         <div>
-                            <label for="defense"> Defensa: {detailsPoke.defense} </label>
+                            <label htmlFor="defense"> Defensa: {detailsPoke.defense} </label>
                             <progress id="defense" value={detailsPoke.defense} max="100"></progress>
                         </div>
                         <div>
-                            <label for="defense">Velocidad: {detailsPoke.speed} </label>
+                            <label htmlFor="speed">Velocidad: {detailsPoke.speed} </label>
                             <progress id="speed" value={detailsPoke.speed} max="100"></progress>
                         </div>
                         <p className="height">Altura: {detailsPoke.height} m</p>

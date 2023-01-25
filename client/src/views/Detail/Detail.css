@@ -6,16 +6,16 @@
     background-attachment:fixed;
     background-size:cover;
     height: 150vh;
+    
 }
 .detailStats{
+    margin-top: 30px;
     display:inline-block;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 20px;
     border-width: 3px;
     border-style:solid;
     border-color: #000000b6;
-    padding: 10px;
-    
 }
 .obj2Detail{
     float: right;
@@ -25,14 +25,13 @@
    /* font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif */
 }
 .objDetail{
-    
-    display: inline-block;
+    margin-left: 30px;
+    margin-top: 60px;
     background-image: url("../../img/targetdetail.png");
     border-radius: 10px;
     border: 1px;
     border-style: solid;
     border-color: rgb(0, 0, 0);
-    padding: 20px;
 }
 .detailStats h1{
     font-family: 'Inspector General 3D', sans-serif;

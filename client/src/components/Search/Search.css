@@ -2,16 +2,20 @@
     padding: 10px;
 }
 .input{
-    background-color: #0d0d0d71;
+    background-color: #08080871;
     height: 30px;
     width: 30vh;
     color: rgb(255, 241, 240);
     border-radius: 5px;
-    border-width: 1px;
+    border-width: 3px;
     border-style: solid;
-    border-color: rgb(236, 10, 10);
+    border-color: rgba(0, 0, 0, 0.736);
+    font-size: 25px;
 }
 .searchBtn{
+    background-color: rgba(160, 60, 254, 0.715);
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     border-radius: 5px;
     cursor: pointer;
     font-size: 20px;

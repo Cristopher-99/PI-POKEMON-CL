@@ -17,19 +17,6 @@
     padding-top: 20px;
     padding-bottom: 20px;
 }
-.FilterPokemon{
-    padding: 5px;
-    font-size: 20px;
-    background-color: rgba(22, 248, 248, 0.593);
-    border-radius: 10px;
-}
-.OrderPokemon{
-    padding: 5px;
-    font-size: 20px;
-    background-color: rgba(233, 59, 181, 0.713);
-    border-radius: 10px;
-
-}
-.FilterAndOrder{
-    padding: 20px;
+.loader_div{
+    justify-content: center;
 }

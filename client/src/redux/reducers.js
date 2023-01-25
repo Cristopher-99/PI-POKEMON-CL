@@ -1,4 +1,4 @@
-import { stat } from "fs";
+import order from "../functions/order";
 import { GET_POKEMONS, GET_TYPES ,GET_DETAILS, CLEAR_DETAIL, SEARCH_BY_NAME,
          CREATE_POKEMON, CLEAR_CREATE_POKEMON, CLEAR_ALL_POKES, CLEAR_TYPES,
         FILTER_BY_TYPES,FILTER_BY_CREATED, ORDER_BY_NAME_OR_ATTACK} from "./actions";
@@ -80,37 +80,9 @@ const rootReducer = (state= initialState, action) =>{
             } 
 
         case ORDER_BY_NAME_OR_ATTACK:
-            let SortedArray;
-                if(action.payload=== "asc"){
-                    SortedArray= state.pokeCopy.sort(function(a,b){
-                       if(a.name > b.name) return 1;
-                       if (b.name > a.name) return -1;
-                       return 0;
-                   })
-                }
-                if(action.payload === "desc")
-                    SortedArray = state.pokeCopy.sort(function(a,b){
-                        if(a.name > b.name) return -1;
-                        if (b.name > a.name) return 1;
-                        return 0;
-                })
-                if(action.payload=== "min"){
-                    SortedArray= state.pokeCopy.sort(function(a,b){
-                       if(a.attack > b.attack) return 1;
-                       if (b.attack > a.attack) return -1;
-                       return 0;
-                   })
-                }
-                if(action.payload === "max")
-                    SortedArray = state.pokeCopy.sort(function(a,b){
-                        if(a.attack > b.attack) return -1;
-                        if (b.attack > a.attack) return 1;
-                        return 0;
-                })
-
             return{
                  ...state,
-                pokemons:SortedArray
+                pokemons: order(state.pokemons, action.payload).map((el)=>el),
             }
 
         default:

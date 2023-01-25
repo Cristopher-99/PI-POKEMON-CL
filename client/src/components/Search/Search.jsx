@@ -14,11 +14,10 @@ const Search = (props) => {
     }
     const handleSumit= (e) =>{
         e.preventDefault();
-        // if(!name.length) return alert("Debe colocar un nombre");
+        if(!name.length) return alert("Debe colocar un nombre");
         dispatch(searchByName(name))
         props.paginado(1);
         setName("");
-
     }
     return (
         <form className="form">

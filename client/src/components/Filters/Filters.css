@@ -1,0 +1,21 @@
+
+.FilterPokemon{
+    padding: 5px;
+    font-size: 30px;
+    background-color: rgba(22, 248, 248, 0.593);
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+.OrderPokemon{
+    padding: 5px;
+    font-size: 30px;
+    background-color: rgba(59, 233, 108, 0.713);
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+.FilterAndOrder{
+    padding: 20px;
+    
+}
