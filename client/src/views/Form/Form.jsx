@@ -37,23 +37,23 @@ const Form = (props) =>{
     })
     /// handler btn
     const handleInputChange = function(e) {
-        if(e.target.name === "types"){
-            if(e.target.checked){
-                setForm({
-                    ...form,
-                    [e.target.name] : [...form[e.target.name],e.target.value]
-                })
-            } else {
-                setForm({
-                    ...form,
-                    [e.target.name] : form[e.target.name].filter(element=>element!==e.target.value)
-                })
-            }
-        } else {
-            setForm({
+        setForm({
             ...form,
             [e.target.name]: e.target.value
-       })}
+        })
+
+    }
+    const handleSelect= function(e){
+        setForm({
+            ...form,
+            types:[...form.types , e.target.value]
+        })
+    }
+    const handleDelete = function(i){
+        setForm({
+            ...form,
+            types: form.types.filter((el)=> el !== i)
+        })
     }
 
     const handleSubmit = function(e) {
@@ -63,9 +63,8 @@ const Form = (props) =>{
        if(Object.keys(error).length === 0){
         //setRenderDetails(true)
         dispatch(createPokemon({
-            ...form,
-            name:form.name.toLowerCase()}));
-            alert(`Pokemon ${form.name} creado`)
+            ...form, name:form.name.toLowerCase()}));
+            alert(`Pokemon ${form.name} fue creado`)
         setForm({
             name: "",
             health:0,
@@ -82,16 +81,15 @@ const Form = (props) =>{
        
     }
     ///
-
     return (
         <div className="FormContainer">
             <div>
                 <NavBar/>
             </div>
-
             <form className="form_create" onSubmit={(e)=> handleSubmit(e)}>
                 
                 <div>
+                    <h1 className="title">Creando Pokemon</h1>
                     <div>
                         <label className="label_create">Nombre: </label>
                         <input type="text" name="name" id="name_l" onChange={(e)=> handleInputChange(e)} value={form.name} />
@@ -129,26 +127,39 @@ const Form = (props) =>{
                         <label className="label_create">Altura: </label>
                         <input type="range" min="0" max="100" name="height" id="height_l" onChange={(e)=> handleInputChange(e)} value={form.height} />
                         <p>{form.height}</p> 
+                        {validate(form).height ? (<p className="danger">{validate(form).height}</p>) : (<></>)}
+
                     </div>           
                     <div>
                         <label className="label_create">Peso: </label>
                         <input type="range" min="0" max="100" name="weight" id="weight_l" onChange={(e)=> handleInputChange(e)} value={form.weight} />
                         <p>{form.weight}</p>
-                        {validate(form).height ? (<p className="danger">{validate(form).height}</p>) : (<></>)}
+                        {validate(form).weight ? (<p className="danger">{validate(form).weight}</p>) : (<></>)}
 
                     </div>
                     <h2 className="types">Tipos: </h2>
+                    
                     <div className="form_types">
-                        {Alltypes?.map((type)=> (
-                           <div className="infoType">
-                                <input type="checkbox" name="types" id={type} value={type} onChange={(e)=> handleInputChange(e)} />
-                                <label htmlFor={type}> {type}</label>
+                        <div className="selectMain">
+                            <select className="selectTypes" onChange={(e)=> handleSelect(e)} value={form.types}>
+                                <option>Selecciona los tipos:</option>
+                                    {Alltypes?.map((type)=> (
+                                        <option id={type} value={type} >{type}</option>
+                                        ))}
+                            </select>
+                        </div>
+                        <div className="panel_types">
+                                {form.types.map((t)=>(
+                                    <div className="box_type">
+                                        <input  className="btn_delete" type="button" value="X" onClick={()=>handleDelete(t)}/>
+                                        <p>{t}</p>
+                                    </div>
+                                ))}
                             </div> 
-                        ))}
                         {validate(form).types ? (<p className="danger">{validate(form).types}</p>) : (<></>)}
-
+                            
                     </div>
-                    <button type='submit' onClick={(e) => handleSubmit(e)} className="btn-create">
+                    <button type='submit' onClick={(e) => handleSubmit(e)} disabled={Object.keys(validate(form)).length === 0 ? false : true} className="btn-create">
                         <span>Crear pokemon</span>
                     </button>
                 </div>

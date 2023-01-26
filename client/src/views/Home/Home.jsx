@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllPokemons, getAllTypes} from "../../redux/actions";
+import { clearAllPokes, clearTypes, getAllPokemons, getAllTypes} from "../../redux/actions";
 import { Link } from "react-router-dom";
 import { Card, Filters, NavBar, Paginado, Search} from "../../components/index.js"
 import Loader from "../Loader/Loader";
@@ -33,6 +33,8 @@ const Home = (props) =>{
 
     function handlerClick(e){
         e.preventDefault();
+        dispatch(clearAllPokes());
+        dispatch(clearTypes());
         dispatch(getAllPokemons());
         setCurrentPage(1);
     }
@@ -54,6 +56,7 @@ const Home = (props) =>{
                             <div key={el.id} className="divCard">
                                 <Link to={`/home/${el.id}`}>
                                     <Card 
+                                        id= {el.id}
                                         name={el.name} 
                                         img={el.img}
                                         attack={el.attack}

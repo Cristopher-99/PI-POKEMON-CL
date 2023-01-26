@@ -69,19 +69,18 @@ export const searchByName= (name)=>{
               
           } catch (error) {
             alert("Pokemon no encontrado");
-            throw error;
+            console.log(error);
           }
         
     }
 }
 export const createPokemon= (poke)=>{
     return async function(dispatch){
-        let response = await axios.post("http://localhost:3001/pokemons",poke);
+        let response = await axios.post("http://localhost:3001/pokemons",poke)
         return dispatch({
             type: CREATE_POKEMON,
             payload: response.data,
         })
-        
     }
 }
 export const clearCreatePokemon= ()=>{

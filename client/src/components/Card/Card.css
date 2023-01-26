@@ -2,6 +2,8 @@
 
 .CardStats{
     background-color: rgba(69, 62, 62, 0.619);
+    background-image: url("../../img/card.png");
+    background-position: center;
     display: inline-table;
     border-radius: 30px;
     padding-bottom: 10px;
@@ -9,10 +11,14 @@
     border-style: solid;
     border-color: #f7f7f6;
 }
-.title{
+.titleCard{
     font-family: 'Inspector General 3D', sans-serif;
-    color: #050505;
+    color: #ffffff;
 
+}
+.imgCard{
+    margin-bottom: 40px;
+    background-color: rgba(0, 0, 0, 0.401);
 }
 .date{
     padding: 10px;
@@ -22,8 +28,8 @@
 
 }
 .CardStats:hover {
-    background-color: #aba6e2;
-
+    /* background-color: #aba6e2; */
+    border-color: aqua solid 10px;
 }
 
         

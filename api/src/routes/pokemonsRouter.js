@@ -5,7 +5,7 @@ const {validate} = require("./validate");
 
 pokemonsRouter.get("/", getAllPokemonsHandler);
 pokemonsRouter.get("/:id", getIdPokemonHandler);
-pokemonsRouter.post("/",validate, createPokemonHandler);
+pokemonsRouter.post("/", createPokemonHandler);
 
 
 module.exports = pokemonsRouter ;

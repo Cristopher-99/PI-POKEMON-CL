@@ -1,4 +1,4 @@
-@import url('https://fonts.cdnfonts.com/css/games');
+@import url('https://fonts.cdnfonts.com/css/inspector-general');
 
 .FormContainer{
     background-image: url("../../img/fondoDetail.jpg");
@@ -7,6 +7,7 @@
     background-size:cover;
     height: 180vh;
 }
+
 .form_create{
     display:inline-block;
     background-color: rgba(0, 0, 0, 0.7);
@@ -18,32 +19,23 @@
     padding: 10px;
     color: white;
     font-size: 20px;
-
 }
 .form_types{
     display: grid;
     grid-template-columns: auto auto auto;
-    color:#00ffff;
 }
-.btn-create{
-    background-color: #227539;
-    border-radius: 10px;
-    color: white;
-    font-size: 20px;
-}
-.header{
-    font-family: 'Inspector General Laser', sans-serif;
-    font-size: 30px;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #2f2b47de;
+.checkbox{
+    cursor: pointer;
 }
 .title{
-    font-family: 'Inspector General 3D', sans-serif;
-    font-size: 40px;
+    padding: 10px;
+    background-color: rgba(155, 27, 241, 0.475);
+    font-family: 'Inspector General 3D Italic', sans-serif;
+    font-size: 50px;
     color: white;
+}
+.label_create{
+    
 }
 .danger{
     color: red;
@@ -52,8 +44,52 @@
     font-size: 20px;
     border-radius: 5px;
 }
-.btn_back{
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.385);
-    display: block;
+.selectMain{
+    justify-content: center;
+
+
 }
+.selectTypes{
+    
+    padding: 5px;
+    background-color: rgba(155, 27, 241, 0.353);
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 10px;
+    border: rgba(234, 234, 234, 0.802) solid 2px;
+}
+.panel_types{
+    justify-content: center;
+    display: inline-block;
+}
+.box_type{
+    border-radius: 10px;
+    border: rgba(255, 255, 255, 0.677) solid 1px;
+}
+.btn_delete{
+    float: right;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-create{
+    margin-top: 30px;
+    background-color: #227539;
+    border-radius: 10px;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+.btn-create:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+.btn-create:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+} 
+
+    
+

@@ -1,18 +1,23 @@
 
 .FilterPokemon{
     padding: 5px;
-    font-size: 30px;
+    font-size: 25px;
     background-color: rgba(22, 248, 248, 0.593);
     border-radius: 10px;
     cursor: pointer;
+    border: white solid 3px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
 
 }
 .OrderPokemon{
     padding: 5px;
-    font-size: 30px;
+    font-size: 25px;
     background-color: rgba(59, 233, 108, 0.713);
     border-radius: 10px;
     cursor: pointer;
+    border: white solid 3px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 }
 .FilterAndOrder{

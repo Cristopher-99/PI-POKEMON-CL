@@ -17,11 +17,11 @@ const Search = (props) => {
         if(!name.length) return alert("Debe colocar un nombre");
         dispatch(searchByName(name))
         props.paginado(1);
-        setName("");
+        setName('')
     }
     return (
         <form className="form">
-                <input onChange={(e)=> handleInputChange(e)} className="input" type="text"  placeholder="Buscar pokemon..." id ="search" />
+                <input className="input" type="text" onChange={(e)=> handleInputChange(e)} value={name} placeholder="Buscar pokemon..." id ="search"  />
                 <button className="searchBtn" type="submit" onClick={(e)=>handleSumit(e)}>Buscar</button>   
                 {/* <img src={lupa} width="30px" height="20px" className="searchBtn" onClick={(e)=> handleSumit(e)} id="search" /> */}
         </form>
