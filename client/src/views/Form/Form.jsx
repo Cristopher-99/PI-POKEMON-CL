@@ -64,7 +64,6 @@ const Form = (props) =>{
         //setRenderDetails(true)
         dispatch(createPokemon({
             ...form, name:form.name.toLowerCase()}));
-            alert(`Pokemon ${form.name} fue creado`)
         setForm({
             name: "",
             health:0,
