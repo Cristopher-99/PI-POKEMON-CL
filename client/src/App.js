@@ -5,8 +5,8 @@ import Landing from './views/Landing/Landing';
 import Detail from './views/Detail/Detail';
 import Form from './views/Form/Form';
 
-
 function App() {
+
   return (
     <BrowserRouter>
       <div className="App">

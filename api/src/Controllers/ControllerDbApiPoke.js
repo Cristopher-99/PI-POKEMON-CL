@@ -3,22 +3,28 @@ const axios = require("axios");
 
 const getApiPokemons = async ()=>{
     try {
-        const apiUrl= await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=40`);
-        let pokemonsApi = await axios.all(apiUrl.data.results.map( async poke =>{
-            let pokeData= await axios(poke.url)
-            return {
-                id: pokeData.data.id,
-                name: pokeData.data.name,
-                img: pokeData.data.sprites.other.dream_world.front_default,
-                types: pokeData.data.types.map(t => t.type.name),
-                attack: pokeData.data.stats[1].base_stat,
-            }
-        }))
-
-    return pokemonsApi;
+        const response = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=60")
+        const pokemon = response.data?.results.map(el=> axios.get(el.url))
+        const prueba= await Promise.allSettled(pokemon).then(res=> res.filter(el=> el.status === "fulfilled"))
+        // const filter= prueba.filter(el=> el.value.data);
+        // console.log(prueba[0].value?.data);
+        const data = prueba.map(el => {
+            const {data} = el.value
+                const obj = {
+                    id: data.id,
+                    name: data.name,
+                    img: data.sprites.other?.dream_world.front_default,
+                    types: data.types.map(t => t.type.name),
+                    attack: data.stats[1].base_stat,
+                }
+                // console.log(obj)
+                return obj;
+            })
+            // console.log(data.length);
+            return data;
 
     } catch (error){
-        return(error)
+        console.log(error.message);
     }
 }
 const getDbPokemons = async () =>{
@@ -47,20 +53,20 @@ const getDbPokemons = async () =>{
     } catch (error) {
         return error;
     }
-    
+
 }
 
 const getAllPokemons = async () =>{ // unifico los pokemons de mi DB y mi API
-
-    const apiPoke = await getApiPokemons();
-    const dbPoke = await getDbPokemons();
-    const AllPokemons=  [...dbPoke, ...apiPoke]; 
-        // return dbPoke.concat(apiPoke);
-    return AllPokemons;
-
-
+        
+        const dbPoke = await getDbPokemons();
+        const apiPoke = await getApiPokemons();
+        const AllPokemons=  [...dbPoke, ...apiPoke]; 
+            // return dbPoke.concat(apiPoke);
+        // console.log(AllPokemons);
+        return AllPokemons;
+        
 }
 
-  
+
 
 module.exports = {getAllPokemons};

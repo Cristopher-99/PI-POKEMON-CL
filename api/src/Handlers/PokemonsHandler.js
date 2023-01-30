@@ -7,13 +7,13 @@ const getAllPokemonsHandler = async (req, res) =>{
     if(name){
         if(await getByName(name)==="No se encontro el Pokemon") return res.status(400).json();
         try {
-            res.status(200).send(await getByName(name))
+            res.status(200).json(await getByName(name))
         } catch (e) {
             res.status(400).json({ error: e.message });
         }
     }else{
         try {
-            res.status(200).send(await getAllPokemons())
+            res.status(200).json(await getAllPokemons())
         } catch (e) {
             res.status(400).json({ error: e.message });
         }  

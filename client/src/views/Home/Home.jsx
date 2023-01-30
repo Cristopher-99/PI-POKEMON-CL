@@ -1,10 +1,9 @@
 import React from "react";
+import { Card, Filters, NavBar, Paginado, Search,Loader} from "../../components/index.js"
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clearAllPokes, clearTypes, getAllPokemons, getAllTypes} from "../../redux/actions";
 import { Link } from "react-router-dom";
-import { Card, Filters, NavBar, Paginado, Search} from "../../components/index.js"
-import Loader from "../Loader/Loader";
 import "./Home.css";
 
 const Home = (props) =>{
@@ -16,8 +15,8 @@ const Home = (props) =>{
     ///paginado
     const[CurrentPage, setCurrentPage]= useState(1)
     const[cardsPerPage, setCardsPerPage]= useState(12)
-    const indexLastCard = CurrentPage * cardsPerPage;
-    const indexFirstCard =  indexLastCard - cardsPerPage;
+    const indexLastCard = CurrentPage * cardsPerPage; // 
+    const indexFirstCard =  indexLastCard - cardsPerPage; // 
     const cardCurrent = Allpokemons?.slice(indexFirstCard, indexLastCard);
     //
     const paginado= (page) =>{
@@ -33,9 +32,10 @@ const Home = (props) =>{
 
     function handlerClick(e){
         e.preventDefault();
-        dispatch(clearAllPokes());
-        dispatch(clearTypes());
+        dispatch(clearTypes())
+        dispatch(clearAllPokes())
         dispatch(getAllPokemons());
+        dispatch(getAllTypes());
         setCurrentPage(1);
     }
     return (
@@ -46,10 +46,12 @@ const Home = (props) =>{
             </div>
             
             <button className="reload" onClick={(e)=> handlerClick(e) }>Recargar</button>
-                <Filters paginado={paginado}/>
+                <Filters paginado={paginado} />
                 <div>
                 <Paginado cardsPerPage={cardsPerPage} AllPokes={Allpokemons.length} paginado={paginado} currentPage={CurrentPage}/>
                </div>
+               {pokemonsCopy.length
+               ?
                 <div className="Cards">
                     {cardCurrent.length? cardCurrent?.map(el=>{
                         return(
@@ -65,9 +67,11 @@ const Home = (props) =>{
                                 </Link>
                             </div>
                         )
+                        
                       })
-                :<div className="loader_div"> <Loader/></div>}
+                    :<div className="loader_div"> <Loader/></div>}
                 </div>
+                : <div className="loader_div"> <Loader/></div>}
         </div>
 
         

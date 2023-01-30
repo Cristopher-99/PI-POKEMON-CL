@@ -2,26 +2,22 @@ import React from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import { useDispatch, useSelector} from "react-redux";
 import { useEffect, useState} from "react";
-import { createPokemon, getAllTypes ,clearCreatePokemon, clearAllPokes,clearTypes} from "../../redux/actions";
+import { createPokemon, getAllTypes, clearAllPokes,clearTypes} from "../../redux/actions";
 import validate from "../../functions/validate";
 import "./Form.css";
 const Form = (props) =>{
 
     const dispatch= useDispatch();
     const Alltypes= useSelector((state)=> state.types)
-    const pokesDb= useSelector((state)=> state.pokeCreated)
 
     useEffect(()=>{
-        // if(pokesDb.name)alert(`Pokemon${pokesDb.name} creado`)
-        // if(pokesDb.message)alert(pokesDb.message)
-        dispatch(clearCreatePokemon())
         dispatch(getAllTypes())
+
         return()=>{
             dispatch(clearAllPokes())
             dispatch(clearTypes())
 
         }
-        
     },[ dispatch])
 
     /// estados locales
@@ -58,10 +54,9 @@ const Form = (props) =>{
 
     const handleSubmit = function(e) {
        e.preventDefault();
-       dispatch(clearCreatePokemon())
+    //    dispatch(clearCreatePokemon())
        let error = validate(form)
        if(Object.keys(error).length === 0){
-        //setRenderDetails(true)
         dispatch(createPokemon({
             ...form, name:form.name.toLowerCase()}));
         setForm({

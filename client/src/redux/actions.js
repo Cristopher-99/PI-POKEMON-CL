@@ -1,17 +1,18 @@
 import axios from "axios";
+
 export const GET_POKEMONS= "GET_POKEMONS";
 export const GET_TYPES= "GET_TYPES";
 export const GET_DETAILS= "GET_DETAILS";
-export const CLEAR_DETAIL= "CLEAR_DETAIL";
 export const SEARCH_BY_NAME= "SEARCH_BY_NAME";
 export const CREATE_POKEMON = "CREATE_POKEMON";
+export const CLEAR_DETAIL= "CLEAR_DETAIL";
 export const CLEAR_CREATE_POKEMON = "CLEAR_CREATE_POKEMON";
 export const CLEAR_ALL_POKES ="CLEAR_ALL_POKES";
 export const CLEAR_TYPES= "CLEAR_TYPES";
 export const FILTER_BY_TYPES ="FILTER_BY_TYPES";
 export const FILTER_BY_CREATED= "FILTER_BY_CREATED";
 export const ORDER_BY_NAME_OR_ATTACK = "ORDER_BY_NAME_OR_ATTACK";
-// export const ORDER_BY_ATTACK = "ORDER_BY_ATTACK";
+// export const RESET_FILTER="RESET_FILTER";
 
 
 export const getAllPokemons = () =>{
@@ -24,8 +25,8 @@ export const getAllPokemons = () =>{
             });
         }
          catch (error) {
-            alert("Error al cargar los pokemons")
-            return(error)
+            alert("Error al Cargar los Pokemons");
+            return(error);
         }
     }
 }
@@ -53,11 +54,6 @@ export const getDetails= (id)=>{
         })
     }
 }
-export const clearDetails= ()=>{
-    return {
-        type: CLEAR_DETAIL
-    }
-}
 export const searchByName= (name)=>{
     return async function(dispatch){
         try {
@@ -69,7 +65,7 @@ export const searchByName= (name)=>{
               
           } catch (error) {
             alert("Pokemon no encontrado");
-            console.log(error);
+            return(error)
           }
         
     }
@@ -81,17 +77,17 @@ export const createPokemon= (poke)=>{
             return dispatch({
                 type: CREATE_POKEMON,
                 payload: response.data,
-            },alert("Pokemon Creado correctamente"))
-            
+            }),alert("Pokemon Creado Exitosamente")
+
         } catch (error) {
-            alert("Hubo un Error al Crear el Pokemon");
-            console.log(error)
+            alert("Error al crear el Pokemon");
+            return(error)
         }
     }
 }
-export const clearCreatePokemon= ()=>{
+export const clearDetails= ()=>{
     return {
-        type: CLEAR_CREATE_POKEMON,
+        type: CLEAR_DETAIL
     }
 }
 export const clearAllPokes= ()=>{
@@ -123,9 +119,4 @@ export const OrderByNameOrAttack = (payload) =>{
         payload,
     }
 }
-// export const OrderbyAttack = (payload)=>{
-//     return {
-//         type: ORDER_BY_ATTACK,
-//         payload
-//     }
-// }
+

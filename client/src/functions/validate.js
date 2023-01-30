@@ -14,9 +14,9 @@ export default function validate(input) {
 
     if(input.speed<1 || input.speed>100) error.speed = "Velocidad entre 1 y 100"
 
-    if(input.height<0 || input.height>100) error.height = "Altura entre 0 y 100"
+    if(input.height<1 || input.height>100) error.height = "Altura entre 1 y 100"
 
-    if(input.weight<0 || input.weight>100) error.weight = "Peso entre 0 y 100"
+    if(input.weight<1 || input.weight>100) error.weight = "Peso entre 1 y 100"
 
     if(!input.types.length) error.types = "selecciona almenos 1 Tipo"
 
