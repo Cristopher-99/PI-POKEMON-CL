@@ -20,10 +20,11 @@ const Search = (props) => {
         setName('')
     }
     return (
-        <div>
+        <div className="searchContainer">
             <form className="form">
-                <input className="input" type="text" onChange={(e)=> handleInputChange(e)} value={name} placeholder="Buscar pokemon..." id ="search"  />
+                <input className="input" type="text" onChange={(e)=> handleInputChange(e)} value={name} placeholder="Buscar pokemon..." id ="search"/>
                 <button className="searchBtn" type="submit" onClick={(e)=>handleSumit(e)}>Buscar</button>   
+                
                     
             </form>
         </div>

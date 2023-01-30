@@ -7,8 +7,8 @@ const Card = (props) =>{
             <div className="CardStats">
                 <h1 className="titleCard">{props.name} </h1>
                 <img className="imgCard"src={props.img} alt="cover" width='280px' height='235px' />
-                <h2 className="date">Ataque: {props.attack}</h2>
-                <h3 className="date">Tipo: {props.types?.toString().split(",").join(" / ")} </h3>
+                <h2 className="attack">Ataque: {props.attack}</h2>
+                <h3 className="types">Tipo: {props.types?.toString().split(",").join(" / ")} </h3>
             </div>
    
     )

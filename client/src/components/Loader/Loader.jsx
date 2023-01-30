@@ -1,7 +1,7 @@
 import React from "react";
 import pikachu from "../../img/pikachuLoader.gif"
 import"./Loader.css";
-const Loader =()=>{
+const Loader =() =>{
 
     return (
         <div className="LoaderContainer">

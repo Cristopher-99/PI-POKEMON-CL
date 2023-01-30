@@ -4,7 +4,7 @@
     background-attachment: fixed;
     background-size:cover;
     background-position: center;
-    height: 200vh;
+    height: 250vh;
 
 }
 .Cards{
@@ -20,4 +20,15 @@
 .loader_div{
     justify-content: center;
 }
+.reload{
+    display: inline-block;
+    cursor: pointer;
+}
+.reload:hover{
+
+}
+/* .divCard:hover{
+    background-color: rgb(127, 255, 229);
+    border-radius: 20px;
+} */
 

@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clearAllPokes, clearTypes, getAllPokemons, getAllTypes} from "../../redux/actions";
 import { Link } from "react-router-dom";
+import recarga from "../../img/botoncarga.png"
 import "./Home.css";
 
-const Home = (props) =>{
+const Home = () =>{
     const dispatch= useDispatch();
     const Allpokemons= useSelector((state)=> state.pokemons)
     const AllTypes= useSelector((state) => state.types)
@@ -40,19 +41,20 @@ const Home = (props) =>{
     }
     return (
         <div className="HomeContainer">
-            <div>
+            <div className="header">
                 <NavBar/>
                 <Search paginado={paginado}/>
+                <img className="reload" src={recarga} onClick={(e)=> handlerClick(e)} id="reloadpoke"width="100" height="100px" />
             </div>
             
-            <button className="reload" onClick={(e)=> handlerClick(e) }>Recargar</button>
+            <div className="filterAndPaginate">
                 <Filters paginado={paginado} />
-                <div>
                 <Paginado cardsPerPage={cardsPerPage} AllPokes={Allpokemons.length} paginado={paginado} currentPage={CurrentPage}/>
-               </div>
+            </div>
+            <div>
                {pokemonsCopy.length
                ?
-                <div className="Cards">
+               <div className="Cards">
                     {cardCurrent.length? cardCurrent?.map(el=>{
                         return(
                             <div key={el.id} className="divCard">
@@ -68,13 +70,15 @@ const Home = (props) =>{
                             </div>
                         )
                         
-                      })
-                    :<div className="loader_div"> <Loader/></div>}
+                    })
+                    :
+                    <Loader/>}
                 </div>
-                : <div className="loader_div"> <Loader/></div>}
-        </div>
+                : 
+                <Loader/>}
+            </div>
 
-        
+        </div>
     )
 }
 

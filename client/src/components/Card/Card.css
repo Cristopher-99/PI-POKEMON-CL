@@ -23,19 +23,26 @@
     background-color: rgba(0, 0, 0, 0.401);
     
 }
-.date{
+.attack{
+    background-color: rgb(238, 89, 78);
+    padding: 5px;
+    margin-bottom: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #ffffff;
+    border-radius: 5px;
+}
+.types{
+    background-color: #a156e2ca;
     padding: 5px;
     margin-bottom: 30px;
     font-family: 'Courier New', Courier, monospace;
     color: #fefefe;
+    border-radius: 5px;
 
+}
+/* .CardStats:hover {
+    background-color: #0df3dc;
+    border-color: aqua solid 10px;
+} */
 
-}
-.CardStats:hover {
-    /* background-color: #aba6e2; */
-    border-color: aqua solid 10px;
-}
-.fire{
-    border-color: aqua solid 10px;
-}
         

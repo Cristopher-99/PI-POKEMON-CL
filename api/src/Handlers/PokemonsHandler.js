@@ -1,5 +1,5 @@
 const {Pokemon} = require("../db")
-const {getAllPokemons} = require("../Controllers/ControllerDbApiPoke")
+const {getAllPokemons} = require("../Controllers/ControllerAllPokemons")
 const {createPokemonDB, getByName,getById} = require("../Controllers/ControllerPokemon");
 
 const getAllPokemonsHandler = async (req, res) =>{
@@ -32,7 +32,7 @@ const getIdPokemonHandler  = async (req, res) =>{
 }
 const createPokemonHandler  = async (req, res) =>{
     const {name,img,health,attack,defense,speed,height,weight,types} = req.body
-    // SE PUEDE MODULARIZAR MAS ...
+
     const findPoke = await Pokemon.findOne({ where: { name: name.toLowerCase()}})
     if (findPoke){
         return res.status(400).send(`El nombre ${name} ya esta en uso`);
