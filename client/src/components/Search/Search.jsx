@@ -8,7 +8,6 @@ const Search = (props) => {
     const dispatch= useDispatch();
     const [name, setName] = useState("");
 
-
     const handleInputChange= (e)=>{
         setName(e.target.value.toLowerCase())
     }
@@ -25,7 +24,6 @@ const Search = (props) => {
                 <input className="input" type="text" onChange={(e)=> handleInputChange(e)} value={name} placeholder="Buscar pokemon..." id ="search"/>
                 <button className="searchBtn" type="submit" onClick={(e)=>handleSumit(e)}>Buscar</button>   
                 
-                    
             </form>
         </div>
 

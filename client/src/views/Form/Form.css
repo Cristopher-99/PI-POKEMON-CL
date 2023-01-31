@@ -31,8 +31,9 @@
 .title{
     padding: 10px;
     background-color: rgba(155, 27, 241, 0.475);
+    border-radius: 20px;
     font-family: 'Inspector General 3D Italic', sans-serif;
-    font-size: 50px;
+    font-size: 30px;
     color: white;
 }
 .h_types{

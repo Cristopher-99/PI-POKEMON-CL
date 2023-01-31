@@ -91,55 +91,48 @@ const Form = (props) =>{
 
                     </div>
                     <div>
-                        <label className="label_create">Vida: </label>
+                        <label className="label_create">Vida: {form.health}</label>
                         <input type="range" min="0" max="100" name="health" id="health_l" onChange={(e)=> handleInputChange(e)} value={form.health} />
-                        <p>{form.health}</p>
                         {validate(form).health ? (<p className="danger">{validate(form).health}</p>) : (<p></p>)}
 
                     </div>
                     <div>
-                        <label className="label_create">Ataque: </label>
+                        <label className="label_create">Ataque: {form.attack}</label>
                         <input type="range" min="0" max="100" name="attack" id="attack_l" onChange={(e)=> handleInputChange(e)} value={form.attack} />
-                        <p>{form.attack}</p>
                         {validate(form).attack ? (<p className="danger">{validate(form).attack}</p>) : (<></>)}
 
                     </div>
                     <div>
-                        <label className="label_create">Defensa: </label>
+                        <label className="label_create">Defensa: {form.defense}</label>
                         <input type="range" min="0" max="100" name="defense" id="defense_l" onChange={(e)=> handleInputChange(e)} value={form.defense} />
-                        <p>{form.defense}</p>
                         {validate(form).defense ? (<p className="danger">{validate(form).defense}</p>) : (<></>)}
                     </div>
                     <div>
-                        <label className="label_create">Velocidad: </label>
+                        <label className="label_create">Velocidad: {form.speed}</label>
                         <input type="range" min="0" max="100" name="speed" id="speed_l" onChange={(e)=> handleInputChange(e)} value={form.speed} />
-                        <p>{form.speed}</p>
                         {validate(form).speed ? (<p className="danger">{validate(form).speed}</p>) : (<></>)}
 
                     </div>
                     <div>
-                        <label className="label_create">Altura: </label>
+                        <label className="label_create">Altura: {form.height}</label>
                         <input type="range" min="0" max="100" name="height" id="height_l" onChange={(e)=> handleInputChange(e)} value={form.height} />
-                        <p>{form.height}</p> 
                         {validate(form).height ? (<p className="danger">{validate(form).height}</p>) : (<></>)}
 
                     </div>           
                     <div>
-                        <label className="label_create">Peso: </label>
+                        <label className="label_create">Peso: {form.weight}</label>
                         <input type="range" min="0" max="100" name="weight" id="weight_l" onChange={(e)=> handleInputChange(e)} value={form.weight} />
-                        <p>{form.weight}</p>
                         {validate(form).weight ? (<p className="danger">{validate(form).weight}</p>) : (<></>)}
 
                     </div>
-                    <h2 className="h_types">Tipos: </h2>
-                    
+                    <h2 className="h_types">Tipos: </h2> 
                     <div className="form_types">
                         <div className="selectMain">
                             <select className="selectTypes" onChange={(e)=> handleSelect(e)} value={form.types}>
                                 <option>Selecciona los tipos:</option>
                                     {Alltypes?.map((type)=> (
                                         <option id={type} value={type} >{type}</option>
-                                        ))}
+                                    ))}
                             </select>
                         </div>
                         <div className="panel_types">

@@ -82,23 +82,23 @@ const rootReducer = (state= initialState, action) =>{
                  ...state,
                 pokemons: order(state.pokemons, action.payload).map((el)=>el),
             }
-        case ORDER_BY_DEFENSE:
-            const orderDefense = action.payload === "asc_defense" 
-            ? state.pokemons.sort(function(a,b){
-                if(a.defense > b.defense) return 1;
-                if(b.defense > a.defense) return -1;
-                return 0;
-            })
-            : state.pokemons.sort(function(a,b){
-                if(a.defense > b.defense) return -1;
-                if(b.defense > a.defense) return 1;
-                return 0;
-            })
+        // case ORDER_BY_DEFENSE:
+        //     const orderDefense = action.payload === "asc_defense" 
+        //     ? state.pokemons.sort(function(a,b){
+        //         if(a.defense > b.defense) return 1;
+        //         if(b.defense > a.defense) return -1;
+        //         return 0;
+        //     })
+        //     : state.pokemons.sort(function(a,b){
+        //         if(a.defense > b.defense) return -1;
+        //         if(b.defense > a.defense) return 1;
+        //         return 0;
+        //     })
 
-            return{
-                ...state,
-                pokemons: orderDefense
-            }
+        //     return{
+        //         ...state,
+        //         pokemons: orderDefense
+        //     }
 
         default:
             return{...state};

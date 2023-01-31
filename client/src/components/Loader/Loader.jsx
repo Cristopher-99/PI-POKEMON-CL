@@ -6,7 +6,7 @@ const Loader =() =>{
     return (
         <div className="LoaderContainer">
             <div className="landing">
-                <img src={pikachu} className="img" width="700px" height="200px"/>
+                <img src={pikachu} className="img" width="00px" height="200px"/>
                 <span className="loader">Cargando...</span>
             </div>
         </div>
