@@ -2,7 +2,7 @@ import React from "react";
 import { getDetails, clearDetails } from "../../redux/actions";
 import { useDispatch,useSelector} from "react-redux";
 import { useEffect } from "react";
-import { useParams, Link} from "react-router-dom";
+import { useParams} from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar";
 // import btn from "../../img/btnback.png"
 import "./Detail.css"

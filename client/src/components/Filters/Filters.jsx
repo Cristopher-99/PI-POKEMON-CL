@@ -8,17 +8,6 @@ const Filters= (props)=>{
     const AllTypes= useSelector((state) => state.types)
     const [orden, setOrden]= useState("");
 
-    // const[filter, setFilter]= useState({
-    //     filterType:"",
-    //     filterCreated:"",
-    //     Order:"",
-    // })
-
-    // function handleResetFilter(e){
-    //     e.preventDefault()
-    //     setOrden("");
-
-    // }
     function handleFilteredByTypes(e){
         dispatch(FilteredByTypes(e.target.value))
         props.paginado(1);
