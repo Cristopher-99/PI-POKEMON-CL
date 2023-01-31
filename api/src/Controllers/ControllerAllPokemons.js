@@ -7,8 +7,7 @@ const getApiPokemons = async ()=>{
         const pokemon = response.data?.results.map(el=> axios.get(el.url))
         const prueba= await Promise.allSettled(pokemon)
             .then((res) => res.filter((el)=> el.status === "fulfilled"))
-        // const filter= prueba.filter(el=> el.value.data);
-        // console.log(prueba[0].value?.data);
+
         const pokemonsApi = prueba.map(el => {
             // const {data} = el.value 
                 return {
@@ -21,7 +20,6 @@ const getApiPokemons = async ()=>{
                 }
                 // return obj;
             })
-            // console.log(data);
             return pokemonsApi;
 
     } catch (error){
