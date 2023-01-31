@@ -29,7 +29,7 @@ const Detail = () =>{
                     
                     <img className='objDetail' src= {detailsPoke.img} alt='Imagen no encontrada' width='400px' height='400px'/>
                     <div className='obj2Detail'>
-                        <h1>{detailsPoke.name}</h1>
+                        <h1 className="titleDetail">{detailsPoke.name}</h1>
                         <h2>Nro Pokemon: {detailsPoke.id} </h2>
                         <div>
                             <label htmlFor="healt">Vida: {detailsPoke.health} </label>

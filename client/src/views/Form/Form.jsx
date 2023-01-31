@@ -131,7 +131,7 @@ const Form = (props) =>{
                         {validate(form).weight ? (<p className="danger">{validate(form).weight}</p>) : (<></>)}
 
                     </div>
-                    <h2 className="types">Tipos: </h2>
+                    <h2 className="h_types">Tipos: </h2>
                     
                     <div className="form_types">
                         <div className="selectMain">

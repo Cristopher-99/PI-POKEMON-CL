@@ -12,6 +12,8 @@ export const CLEAR_TYPES= "CLEAR_TYPES";
 export const FILTER_BY_TYPES ="FILTER_BY_TYPES";
 export const FILTER_BY_CREATED= "FILTER_BY_CREATED";
 export const ORDER_BY_NAME_OR_ATTACK = "ORDER_BY_NAME_OR_ATTACK";
+export const ORDER_BY_DEFENSE= "ORDER_BY_DEFENSE";
+
 // export const RESET_FILTER="RESET_FILTER";
 
 
@@ -116,6 +118,12 @@ export const FilteredByCreated= (payload) =>{
 export const OrderByNameOrAttack = (payload) =>{
     return {
         type: ORDER_BY_NAME_OR_ATTACK,
+        payload,
+    }
+}
+export const OrderByDefense = (payload)=>{
+    return {
+        type: ORDER_BY_DEFENSE,
         payload,
     }
 }

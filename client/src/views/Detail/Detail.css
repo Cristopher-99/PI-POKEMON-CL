@@ -33,6 +33,11 @@
     border-style: solid;
     border-color: rgb(0, 0, 0);
 }
+.titleDetail{
+    background-color: rgba(255, 166, 0, 0.734);
+    border-radius: 10px;
+    border: black solid 2px;
+}
 .detailStats h1{
     font-family: 'Inspector General 3D', sans-serif;
     font-size: 60px;

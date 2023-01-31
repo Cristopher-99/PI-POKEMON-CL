@@ -17,6 +17,7 @@ const getApiPokemons = async ()=>{
                     img: el.value.data.sprites.other?.dream_world.front_default,
                     types: el.value.data.types.map(t => t.type.name),
                     attack: el.value.data.stats[1].base_stat,
+                    defense: el.value.data.stats[2].base_stat,
                 }
                 // return obj;
             })

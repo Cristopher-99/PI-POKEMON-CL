@@ -10,8 +10,8 @@ import "./Home.css";
 const Home = () =>{
     const dispatch= useDispatch();
     const Allpokemons= useSelector((state)=> state.pokemons)
-    const AllTypes= useSelector((state) => state.types)
     const pokemonsCopy= useSelector((state)=> state.pokeCopy)
+    const AllTypes= useSelector((state) => state.types)
 
     ///paginado
     const[CurrentPage, setCurrentPage]= useState(1)
@@ -44,7 +44,11 @@ const Home = () =>{
             <div className="header">
                 <NavBar/>
                 <Search paginado={paginado}/>
-                <img className="reload" src={recarga} onClick={(e)=> handlerClick(e)} id="reloadpoke"width="100" height="100px" />
+                <div>
+                    <h3 className="p_reload" id="reloadpoke">Recargar Pokemons</h3>
+                    <img className="reload" src={recarga} onClick={(e)=> handlerClick(e)} id="reloadpoke"width="100" height="100px" />
+                </div>
+                
             </div>
             
             <div className="filterAndPaginate">
@@ -68,8 +72,7 @@ const Home = () =>{
                                         />
                                 </Link>
                             </div>
-                        )
-                        
+                        )  
                     })
                     :
                     <Loader/>}

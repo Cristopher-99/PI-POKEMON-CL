@@ -11,6 +11,7 @@
 
 }
 .OrderPokemon{
+    margin-left: 40px;
     padding: 5px;
     font-size: 25px;
     background-color: rgba(59, 233, 108, 0.713);
@@ -21,6 +22,8 @@
 
 }
 .FilterAndOrder{
+    justify-content: center;
+    display: flex;
     padding: 20px;
     
 }

@@ -13,8 +13,8 @@ const order= (array,type) =>{
             if (b.name > a.name) return 1;
             return 0;
     })
-    if (type==="max") SortedArray.sort((a, b) => b.attack - a.attack);
     if (type==="min") SortedArray.sort((a, b) => a.attack - b.attack);
+    if (type==="max") SortedArray.sort((a, b) => b.attack - a.attack);
 
     return SortedArray;
 }
