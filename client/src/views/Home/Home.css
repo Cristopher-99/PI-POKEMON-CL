@@ -27,13 +27,11 @@
 }
 .p_reload{
     margin-bottom: 1px;
-    font-size: 20px;
+    font-size: 15px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: white;
 }
-.reload:hover{
 
-}
 /* .divCard:hover{
     background-color: rgb(127, 255, 229);
     border-radius: 20px;

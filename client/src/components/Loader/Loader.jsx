@@ -5,10 +5,8 @@ const Loader =() =>{
 
     return (
         <div className="LoaderContainer">
-            <div className="landing">
-                <img src={pikachu} className="img" width="00px" height="200px"/>
-                <span className="loader">Cargando...</span>
-            </div>
+                <img src={pikachu} className="img" width="600px" height="200px"/>
+                <p className="loader">Cargando...</p>
         </div>
         
     )

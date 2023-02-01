@@ -46,7 +46,7 @@ const Home = () =>{
                 <Search paginado={paginado}/>
                 <div>
                     <h3 className="p_reload" id="reloadpoke">Recargar Pokemons</h3>
-                    <img className="reload" src={recarga} onClick={(e)=> handlerClick(e)} id="reloadpoke"width="100" height="100px" />
+                    <img className="reload" src={recarga} onClick={(e)=> handlerClick(e)} id="reloadpoke"width="60" height="60px" />
                 </div>
                 
             </div>
@@ -56,8 +56,7 @@ const Home = () =>{
                 <Paginado cardsPerPage={cardsPerPage} AllPokes={Allpokemons.length} paginado={paginado} currentPage={CurrentPage}/>
             </div>
             <div>
-               {pokemonsCopy.length
-               ?
+
                <div className="Cards">
                     {cardCurrent.length? cardCurrent?.map(el=>{
                         return(
@@ -77,8 +76,7 @@ const Home = () =>{
                     :
                     <Loader/>}
                 </div>
-                : 
-                <Loader/>}
+
             </div>
 
         </div>
