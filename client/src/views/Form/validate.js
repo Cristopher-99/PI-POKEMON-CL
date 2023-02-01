@@ -6,13 +6,13 @@ export default function validate(input) {
     else if(input.name.length>15) error.name = "Maximo 15 Caracteres"
     else if(!onlyLetter.test(input.name)) error.name = "Solo Letras"
     
-    if(input.health<1 || input.health>100) error.health = "Vida entre 1 y 100"
+    if(input.health<1 || input.health>150) error.health = "Vida entre 1 y 150"
 
-    if(input.attack<1 || input.attack>100) error.attack = "Ataque entre 1 y 100"
+    if(input.attack<1 || input.attack>150) error.attack = "Ataque entre 1 y 150"
 
-    if(input.defense<1 || input.defense>100) error.defense = "Defensa entre 1 y 100"
+    if(input.defense<1 || input.defense>150) error.defense = "Defensa entre 1 y 150"
 
-    if(input.speed<1 || input.speed>100) error.speed = "Velocidad entre 1 y 100"
+    if(input.speed<1 || input.speed>150) error.speed = "Velocidad entre 1 y 150"
 
     if(input.height<1 || input.height>100) error.height = "Altura entre 1 y 100"
 

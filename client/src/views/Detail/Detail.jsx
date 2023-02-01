@@ -33,19 +33,19 @@ const Detail = () =>{
                         <h2>Nro Pokemon: {detailsPoke.id} </h2>
                         <div>
                             <label htmlFor="healt">Vida: {detailsPoke.health} </label>
-                            <progress id="health" value={detailsPoke.health} max="100"></progress>
+                            <progress id="health" value={detailsPoke.health} max="150"></progress>
                         </div>
                         <div>
                             <label htmlFor="attack">Ataque: {detailsPoke.attack} </label>
-                            <progress id="attack" value={detailsPoke.attack} max="100"></progress>
+                            <progress id="attack" value={detailsPoke.attack} max="150"></progress>
                         </div>
                         <div>
                             <label htmlFor="defense"> Defensa: {detailsPoke.defense} </label>
-                            <progress id="defense" value={detailsPoke.defense} max="100"></progress>
+                            <progress id="defense" value={detailsPoke.defense} max="150"></progress>
                         </div>
                         <div>
                             <label htmlFor="speed">Velocidad: {detailsPoke.speed} </label>
-                            <progress id="speed" value={detailsPoke.speed} max="100"></progress>
+                            <progress id="speed" value={detailsPoke.speed} max="150"></progress>
                         </div>
                         <p className="height">Altura: {detailsPoke.height} m</p>
                         <p className="weight">Peso: {detailsPoke.weight} kg</p>

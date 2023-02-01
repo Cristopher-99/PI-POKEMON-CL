@@ -3,7 +3,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import { useDispatch, useSelector} from "react-redux";
 import { useEffect, useState} from "react";
 import { createPokemon, getAllTypes, clearAllPokes,clearTypes} from "../../redux/actions";
-import validate from "../../functions/validate";
+import validate from "./validate.js";
 import "./Form.css";
 const Form = (props) =>{
 
@@ -92,24 +92,24 @@ const Form = (props) =>{
                     </div>
                     <div>
                         <label className="label_create">Vida: {form.health}</label>
-                        <input type="range" min="0" max="100" name="health" id="health_l" onChange={(e)=> handleInputChange(e)} value={form.health} />
+                        <input type="range" min="0" max="200" name="health" id="health_l" onChange={(e)=> handleInputChange(e)} value={form.health} />
                         {validate(form).health ? (<p className="danger">{validate(form).health}</p>) : (<p></p>)}
 
                     </div>
                     <div>
                         <label className="label_create">Ataque: {form.attack}</label>
-                        <input type="range" min="0" max="100" name="attack" id="attack_l" onChange={(e)=> handleInputChange(e)} value={form.attack} />
+                        <input type="range" min="0" max="200" name="attack" id="attack_l" onChange={(e)=> handleInputChange(e)} value={form.attack} />
                         {validate(form).attack ? (<p className="danger">{validate(form).attack}</p>) : (<></>)}
 
                     </div>
                     <div>
                         <label className="label_create">Defensa: {form.defense}</label>
-                        <input type="range" min="0" max="100" name="defense" id="defense_l" onChange={(e)=> handleInputChange(e)} value={form.defense} />
+                        <input type="range" min="0" max="200" name="defense" id="defense_l" onChange={(e)=> handleInputChange(e)} value={form.defense} />
                         {validate(form).defense ? (<p className="danger">{validate(form).defense}</p>) : (<></>)}
                     </div>
                     <div>
                         <label className="label_create">Velocidad: {form.speed}</label>
-                        <input type="range" min="0" max="100" name="speed" id="speed_l" onChange={(e)=> handleInputChange(e)} value={form.speed} />
+                        <input type="range" min="0" max="200" name="speed" id="speed_l" onChange={(e)=> handleInputChange(e)} value={form.speed} />
                         {validate(form).speed ? (<p className="danger">{validate(form).speed}</p>) : (<></>)}
 
                     </div>

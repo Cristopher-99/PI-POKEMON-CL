@@ -69,7 +69,6 @@ const Home = () =>{
                                         img={el.img}
                                         health={el.health}
                                         attack={el.attack}
-                                        defense={el.defense}
                                         types={el.types?.map(t=>t)}
                                         />
                                 </Link>
