@@ -57,3 +57,10 @@
     background-color: rgba(0, 0, 0, 0.385);
     display: block;
 }
+.divpoketype{
+    margin-top: 0;
+    padding: 10px;
+    display:inline-block;
+    border-radius: 10px;
+    border: 1px black solid;
+}

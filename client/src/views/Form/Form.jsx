@@ -127,6 +127,12 @@ const Form = (props) =>{
                         {validate(form).weight ? (<p className="danger">{validate(form).weight}</p>) : (<></>)}
 
                     </div>
+                    <div className="inputImg">
+                        <label className="label_create">Inserte una imagen: </label>
+                        <input type="text" name="img" id="img"  onChange={(e)=>handleInputChange(e)} value={form.img}/>
+                        {/* {validate(form).img ? (<p className="danger">{validate(form).img}</p>) : (<></>)} */}
+                    </div>
+
                     <h2 className="h_types">Tipos: </h2> 
                     <div className="form_types">
                         <div className="selectMain">
@@ -148,11 +154,7 @@ const Form = (props) =>{
                         {validate(form).types ? (<p className="danger">{validate(form).types}</p>) : (<></>)}
                             
                     </div>
-                    <div className="inputImg">
-                        <label className="label_Img">Inserte una imagen: </label>
-                        <input type="text" name="img" id="img"  onChange={(e)=>handleInputChange(e)} value={form.img}/>
-                        {/* {validate(form).img ? (<p className="danger">{validate(form).img}</p>) : (<></>)} */}
-                    </div>
+                  
                     <button type='submit' onClick={(e) => handleSubmit(e)} disabled={Object.keys(validate(form)).length === 0 ? false : true} className="btn-create">
                         <span>Crear pokemon</span>
                     </button>
