@@ -5,8 +5,10 @@ const Loader =() =>{
 
     return (
         <div className="LoaderContainer">
-                <img src={pikachu} className="img" width="600px" height="200px"/>
-                <p className="loader">Cargando...</p>
+            <div className="loaderMain">
+                <img src={pikachu} width="600px" height="200px"/>
+                <p className="loader">Cargando ...</p>
+            </div>
         </div>
         
     )

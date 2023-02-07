@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch,useSelector } from "react-redux";
-import { FilteredByTypes, FilteredByCreated, OrderByNameOrAttack,OrderByDefense} from "../../redux/actions";
+import { FilteredByTypes, FilteredByCreated, OrderByNameOrAttack,OrderByDefense,FilteredByAttack} from "../../redux/actions";
 import "./Filters.css"
 
 const Filters= (props)=>{
@@ -22,11 +22,22 @@ const Filters= (props)=>{
         props.paginado(1);
         setOrden(`Ordenado ${e.target.value}`)
     }
+    function handlerFilteredByAttack(e){
+        e.preventDefault()
+        dispatch(FilteredByAttack(e.target.value))
+        props.paginado(1);
+    }
 
     return (
         <div className="FilterAndOrder">
         {/* <button type="submit" onClick={(e)=>handleResetFilter(e)}>Reset Filter</button> */}
         <div className="FilterContainer">
+            <select className="FilterPokemon" onChange={(e)=>handlerFilteredByAttack(e)}>
+                <option value="default">Filtrar por Ataque :</option>
+                <option value="mayor_atack">Mayores a 50 :</option>
+                <option value="menor_atack">Menores a 50 :</option>
+
+            </select>
             <select className="FilterPokemon" onChange={(e) =>handleFilteredByTypes(e)} > 
                 <option value="All">Filtrar por Tipo:</option>
                 {AllTypes.map((e)=>

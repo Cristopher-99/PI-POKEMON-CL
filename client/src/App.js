@@ -4,6 +4,7 @@ import Home from './views/Home/Home';
 import Landing from './views/Landing/Landing';
 import Detail from './views/Detail/Detail';
 import Form from './views/Form/Form';
+import Aboutme from './views/Aboutme/Aboutme';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
           <Route exact path="/home" component={Home} /> 
           <Route exact path="/home/:id" component={Detail} /> 
           <Route exact path="/create" component={Form} /> 
+          <Route exact path="/about" component={Aboutme} /> 
         </Switch>
       </div>
     </BrowserRouter>

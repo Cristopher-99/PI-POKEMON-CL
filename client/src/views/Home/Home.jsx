@@ -1,10 +1,11 @@
 import React from "react";
-import { Card, Filters, NavBar, Paginado, Search,Loader} from "../../components/index.js"
+import { Card, Filters, NavBar, Paginado, Search,Loader, Errorpoke} from "../../components/index.js"
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clearAllPokes, clearTypes, getAllPokemons, getAllTypes} from "../../redux/actions";
 import { Link } from "react-router-dom";
 import recarga from "../../img/botoncarga.png"
+
 import "./Home.css";
 
 const Home = () =>{
@@ -16,8 +17,8 @@ const Home = () =>{
     ///paginado
     const[CurrentPage, setCurrentPage]= useState(1)
     const[cardsPerPage, setCardsPerPage]= useState(12)
-    const indexLastCard = CurrentPage * cardsPerPage; // 
-    const indexFirstCard =  indexLastCard - cardsPerPage; // 
+    const indexLastCard = CurrentPage * cardsPerPage; //  2 *12 = 24
+    const indexFirstCard =  indexLastCard - cardsPerPage; // 24 - 12 = 12 
     const cardCurrent = Allpokemons?.slice(indexFirstCard, indexLastCard);
     //
     const paginado= (page) =>{
@@ -54,8 +55,9 @@ const Home = () =>{
             <div className="filterAndPaginate">
                 <Filters paginado={paginado} />
                 <Paginado cardsPerPage={cardsPerPage} AllPokes={Allpokemons.length} paginado={paginado} currentPage={CurrentPage}/>
+
             </div>
-            <div>
+            <div className="pokemonsContainer">
                {pokemonsCopy.length
                ?
                <div className="Cards">
@@ -76,7 +78,7 @@ const Home = () =>{
                         )  
                     })
                     :
-                    <Loader/>}
+                    <Errorpoke/>}
                 </div>
                 : 
                 <Loader/>}

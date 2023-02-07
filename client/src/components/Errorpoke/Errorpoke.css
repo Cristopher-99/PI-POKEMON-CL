@@ -1,0 +1,17 @@
+@import url('https://fonts.cdnfonts.com/css/tara');
+.Container{
+    align-items: center;
+    width: 100vw;
+}
+.msgError{
+    margin-top: 30px;
+    display: inline-block;
+    background-color: #282c34;
+    padding: 30px;
+    border-radius: 20px;
+}
+.msg{
+    font-family: 'tara', sans-serif;
+    color: white;
+    font-size: 40px;
+}

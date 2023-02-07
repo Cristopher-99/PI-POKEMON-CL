@@ -13,7 +13,7 @@ export const FILTER_BY_TYPES ="FILTER_BY_TYPES";
 export const FILTER_BY_CREATED= "FILTER_BY_CREATED";
 export const ORDER_BY_NAME_OR_ATTACK = "ORDER_BY_NAME_OR_ATTACK";
 export const ORDER_BY_DEFENSE= "ORDER_BY_DEFENSE";
-
+export const FILTER_BY_ATTACK="FILTER_BY_ATTACK";
 // export const RESET_FILTER="RESET_FILTER";
 
 
@@ -66,7 +66,7 @@ export const searchByName= (name)=>{
               })
               
           } catch (error) {
-            alert("Pokemon no encontrado");
+            alert(`Pokemon ${name} no encontrado`);
             return(error)
           }
         
@@ -111,6 +111,12 @@ export const FilteredByTypes = (payload)=>{
 export const FilteredByCreated= (payload) =>{   
     return {
         type: FILTER_BY_CREATED,
+        payload,
+    }
+}
+export const FilteredByAttack= (payload)=>{
+    return{
+        type: FILTER_BY_ATTACK,
         payload,
     }
 }

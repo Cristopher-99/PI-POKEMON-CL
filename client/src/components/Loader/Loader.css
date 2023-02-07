@@ -1,19 +1,29 @@
 /* From uiverse.io by @gagan-gv */
+@import url('https://fonts.cdnfonts.com/css/tara');
+
 .LoaderContainer{
-    justify-content: center;
-    height: 100vh;
-    margin-left: 50vh;
+  /* justify-content: center; */
+  height:auto;
+  width:auto;
+  text-align:center  
 }
+.loaderMain{
+  height:auto;
+  width:auto;
+  margin:0px auto;
+
+}
+
 .loader{
     background-color: rgba(0, 0, 0, 0.503);
     border-radius: 10px;
     font-size: 48px;
     color: #FFF;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'tara', sans-serif;
     font-weight: 400;
     position: relative;
     padding: 10px;
-  }
+}
   .loader:after{
     content: '';
     height: 8px;
@@ -22,5 +32,6 @@
     background: #b65bf3;
     animation: 5s lineGrow linear infinite;
   }
+
   
   @keyframes lineGrow {to{width: 100%;}}

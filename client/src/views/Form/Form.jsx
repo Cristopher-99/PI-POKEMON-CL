@@ -30,6 +30,7 @@ const Form = (props) =>{
         height:0 ,
         weight:0 ,
         types: [],
+        img:"",
     })
     /// handler btn
     const handleInputChange = function(e) {
@@ -68,6 +69,7 @@ const Form = (props) =>{
             height:0,
             weight:0,
             types:[],
+            img:"",
         })
        } else {
         alert('Completa los campos requeridos')
@@ -92,24 +94,24 @@ const Form = (props) =>{
                     </div>
                     <div>
                         <label className="label_create">Vida: {form.health}</label>
-                        <input type="range" min="0" max="200" name="health" id="health_l" onChange={(e)=> handleInputChange(e)} value={form.health} />
+                        <input type="range" min="0" max="150" name="health" id="health_l" onChange={(e)=> handleInputChange(e)} value={form.health} />
                         {validate(form).health ? (<p className="danger">{validate(form).health}</p>) : (<p></p>)}
 
                     </div>
                     <div>
                         <label className="label_create">Ataque: {form.attack}</label>
-                        <input type="range" min="0" max="200" name="attack" id="attack_l" onChange={(e)=> handleInputChange(e)} value={form.attack} />
+                        <input type="range" min="0" max="150" name="attack" id="attack_l" onChange={(e)=> handleInputChange(e)} value={form.attack} />
                         {validate(form).attack ? (<p className="danger">{validate(form).attack}</p>) : (<></>)}
 
                     </div>
                     <div>
                         <label className="label_create">Defensa: {form.defense}</label>
-                        <input type="range" min="0" max="200" name="defense" id="defense_l" onChange={(e)=> handleInputChange(e)} value={form.defense} />
+                        <input type="range" min="0" max="150" name="defense" id="defense_l" onChange={(e)=> handleInputChange(e)} value={form.defense} />
                         {validate(form).defense ? (<p className="danger">{validate(form).defense}</p>) : (<></>)}
                     </div>
                     <div>
                         <label className="label_create">Velocidad: {form.speed}</label>
-                        <input type="range" min="0" max="200" name="speed" id="speed_l" onChange={(e)=> handleInputChange(e)} value={form.speed} />
+                        <input type="range" min="0" max="150" name="speed" id="speed_l" onChange={(e)=> handleInputChange(e)} value={form.speed} />
                         {validate(form).speed ? (<p className="danger">{validate(form).speed}</p>) : (<></>)}
 
                     </div>
@@ -145,6 +147,11 @@ const Form = (props) =>{
                             </div> 
                         {validate(form).types ? (<p className="danger">{validate(form).types}</p>) : (<></>)}
                             
+                    </div>
+                    <div className="inputImg">
+                        <label className="label_Img">Inserte una imagen: </label>
+                        <input type="text" name="img" id="img"  onChange={(e)=>handleInputChange(e)} value={form.img}/>
+                        {/* {validate(form).img ? (<p className="danger">{validate(form).img}</p>) : (<></>)} */}
                     </div>
                     <button type='submit' onClick={(e) => handleSubmit(e)} disabled={Object.keys(validate(form)).length === 0 ? false : true} className="btn-create">
                         <span>Crear pokemon</span>

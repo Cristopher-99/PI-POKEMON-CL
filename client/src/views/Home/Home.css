@@ -1,14 +1,23 @@
-@import url('https://fonts.cdnfonts.com/css/inspector-general');
+@import url('https://fonts.cdnfonts.com/css/inspector-general') bri;
+@import url('https://fonts.cdnfonts.com/css/tara');
+
 .HomeContainer{
-    background-image: url("../../img/fondoHome.jpg");
+    background-image:  linear-gradient(rgba(0, 0, 0, 0.212), rgba(0, 0, 0, 0.299)), url("../../img/fondoHome.jpg") ;
     background-repeat: repeat;
     background-attachment: fixed;
     background-size:cover;
     background-position: center;
-    height: 250vh;
+    height: 260vh;
+
 
 }
+.pokemonsContainer{
+    text-align: center;
+    height: auto;
+    width: auto;
+}
 .Cards{
+    margin: 0px auto;
     display: grid;
     grid-template-columns: auto auto auto auto;
     grid-template-rows: auto auto auto auto;
@@ -18,18 +27,23 @@
     padding-top: 20px;
     padding-bottom: 20px;
 }
-.loader_div{
-    justify-content: center;
-}
+
 .reload{
     display: inline-block;
     cursor: pointer;
 }
 .p_reload{
     margin-bottom: 1px;
-    font-size: 15px;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    font-family: 'tara', sans-serif;
     color: white;
+}
+.errormsg{
+    display: block;
+  
+}
+.imgerror{
+    border-radius: 30px;
 }
 
 /* .divCard:hover{

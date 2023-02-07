@@ -21,5 +21,7 @@ export default function validate(input) {
     if(!input.types.length) error.types = "selecciona almenos 1 Tipo"
 
     if(input.types.length>2) error.types = "Maximo 2 tipos"
+    // if (!input.img) error.img = "imagen requerida"
+
     return error
   };

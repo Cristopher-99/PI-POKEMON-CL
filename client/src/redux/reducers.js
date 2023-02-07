@@ -2,7 +2,7 @@ import { stat } from "fs";
 import order from "../functions/order";
 import { GET_POKEMONS, GET_TYPES ,GET_DETAILS, CLEAR_DETAIL, SEARCH_BY_NAME,
          CREATE_POKEMON, CLEAR_ALL_POKES, CLEAR_TYPES,
-        FILTER_BY_TYPES,FILTER_BY_CREATED, ORDER_BY_NAME_OR_ATTACK, ORDER_BY_DEFENSE} from "./actions";
+        FILTER_BY_TYPES,FILTER_BY_CREATED, ORDER_BY_NAME_OR_ATTACK, ORDER_BY_DEFENSE,FILTER_BY_ATTACK} from "./actions";
 
 const initialState = {
     pokemons:[],
@@ -75,7 +75,17 @@ const rootReducer = (state= initialState, action) =>{
                 pokemons: action.payload === "All" 
                 ? AllPokemons 
                 : FilteredByCreated
-            } 
+            }
+        case FILTER_BY_ATTACK:
+            const FilteredByAttack = action.payload === "mayor_atack"
+            ? AllPokemons.filter(el => el.attack > 50)
+            : AllPokemons.filter(el => el.attack < 50)
+            return{
+                ...state,
+                pokemons: action.payload ==="default" 
+                ?AllPokemons
+                : FilteredByAttack
+            }
 
         case ORDER_BY_NAME_OR_ATTACK:
             return{

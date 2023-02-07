@@ -1,6 +1,7 @@
+@import url('https://fonts.cdnfonts.com/css/tara');
 
 .LandingContainer{
-    background-image: url("../../img/fondogif.gif");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.319), rgba(0, 0, 0, 0.244)) ,url("../../img/fondogif.gif");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -8,23 +9,28 @@
     width: 100%;
     justify-content: center;
 }
-.btnPoke {
-    background-color: red;
-    /* background-image: url("../../img/fondopokemon.png"); */
-    color: rgb(255, 255, 255);
-    width: 60px;
-    height: 36px;
-    border-radius: 10px;
-    cursor: pointer;
-}
+
 .Welcome {
    
     /* background-image: url("../../img/portadapokemon.png"); */
-    margin-top: 120px;
-    background-color: #ecf3fa96;
+    margin-top: 10px;
+    background-color: #f4ecfa96;
     display: block;
     border: rgba(87, 83, 83, 0.456) 3px solid;
     border-radius: 10px;
     padding-top: 30px;
 }
 
+.Welcome h2{
+    margin: 0;
+    font-family: 'tara', sans-serif;
+    color: red;
+    text-decoration:none;
+}
+.Welcome h1 {
+    font-family: 'tara', sans-serif;
+
+}
+.iniciar{
+    text-decoration: none;
+}
